@@ -61,9 +61,7 @@ class _TsmStateFulState extends State<TsmStateFulWidget> {
             action: SnackBarAction(
               label: '撤销',
               onPressed: (){
-                Future.delayed(const Duration(seconds: 5),(){
-                  Scaffold.of(context).hideCurrentSnackBar();
-                });
+                printString('点击了snackbar');
               },
             ),
           ));

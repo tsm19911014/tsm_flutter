@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app1/utils.dart';
 import 'package:flutter_app1/widget/ViewInflate.dart';
@@ -12,7 +13,7 @@ class FirstPage extends StatefulWidget {
 class _FirstPageState extends State<FirstPage> {
 
 
-  int _currentIndex=1;
+  int _currentIndex = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -24,17 +25,21 @@ class _FirstPageState extends State<FirstPage> {
           IconButton(
             icon: Icon(Icons.title),
             tooltip: '按钮',
-            onPressed: (){
+            onPressed: () {
               printString('点击按钮');
             },
           ),
           PopupMenuButton(
-              itemBuilder:(context) => <PopupMenuItem<String>>[
-                inflatePopuMenuItem(Icons.message, '发起群聊', 'A'),
-                inflatePopuMenuItem(Icons.group_add, '添加服务', 'B'),
-                inflatePopuMenuItem(Icons.cast_connected, '扫一扫码', 'C'),
-              ],
+            itemBuilder: (context) =>
+            <PopupMenuItem<String>>[
+              inflatePopuMenuItem(Icons.message, '发起群聊', 'A'),
+              inflatePopuMenuItem(Icons.group_add, '添加服务', 'B'),
+              inflatePopuMenuItem(Icons.cast_connected, '扫一扫码', 'C'),
+            ],
             offset: Offset(0, 50),
+            onSelected: (value){
+              printString(value);
+            },
           )
 
         ],
@@ -46,18 +51,43 @@ class _FirstPageState extends State<FirstPage> {
             child: Container(
               width: 150.0,
               color: Colors.orange,
-              child: Text('抽屉栏',style: TextStyle(color: Colors.black87,fontSize: 16),),
+              child: Text(
+                '抽屉栏', style: TextStyle(color: Colors.black87, fontSize: 16),),
 //              child: inflateText('抽屉栏', Colors.black, 16),
             ),
           )
       ),
+
+      drawerDragStartBehavior: DragStartBehavior.start,
+      drawerScrimColor: Colors.redAccent,
+      drawerEnableOpenDragGesture: true,
+
+      floatingActionButton: FloatingActionButton(
+        child: inflateText('内容', Colors.white, 14),
+      ),
+
+
+
+      persistentFooterButtons: <Widget>[
+        Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+               inflateText('按钮1', Colors.black87, 14),
+               inflateText('按钮2', Colors.black87, 14),
+               inflateText('按钮3', Colors.black87, 14),
+            ],
+          ),
+        ),
+      ],
+
       body: TsmStateFulWidget('Flutter Demo Home Page', true),
 
       bottomNavigationBar: BottomNavigationBar(
 
-        currentIndex:_currentIndex,
-
-//        fixedColor: Colors.redAccent,
+        currentIndex: _currentIndex,
         selectedItemColor: Colors.blueAccent,
         unselectedItemColor: Colors.grey,
         items: [
@@ -66,14 +96,15 @@ class _FirstPageState extends State<FirstPage> {
           inflateBottomNavBarItem(Icons.message, '财富'),
           inflateBottomNavBarItem(Icons.access_alarm, '爱情'),
         ],
-        onTap: (int index){
+        onTap: (int index) {
           setState(() {
+            MediaQueryData.fromWindow(WidgetsBinding.instance.window).padding.top;
+//            showModalBottomSheet(context: context, builder: (context) => getWidget(),);
             printString(index);
-            _currentIndex=index;
+            _currentIndex = index;
           });
         },
-      ) ,
+      ),
     );
   }
 }
-
