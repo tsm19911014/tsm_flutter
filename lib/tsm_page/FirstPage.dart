@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app1/utils.dart';
+import 'package:flutter_app1/widget/ViewInflate.dart';
 import 'package:flutter_app1/widget/TsmStateFulWidget.dart';
 
 class FirstPage extends StatefulWidget {
@@ -29,9 +30,9 @@ class _FirstPageState extends State<FirstPage> {
           ),
           PopupMenuButton(
               itemBuilder:(context) => <PopupMenuItem<String>>[
-                SelectView(Icons.message, '发起群聊', 'A'),
-                SelectView(Icons.group_add, '添加服务', 'B'),
-                SelectView(Icons.cast_connected, '扫一扫码', 'C'),
+                inflatePopuMenuItem(Icons.message, '发起群聊', 'A'),
+                inflatePopuMenuItem(Icons.group_add, '添加服务', 'B'),
+                inflatePopuMenuItem(Icons.cast_connected, '扫一扫码', 'C'),
               ],
             offset: Offset(0, 50),
           )
@@ -45,7 +46,8 @@ class _FirstPageState extends State<FirstPage> {
             child: Container(
               width: 150.0,
               color: Colors.orange,
-              child: Text('侧边栏',style: TextStyle(color: Colors.white,fontSize: 24.0),),
+              child: Text('抽屉栏',style: TextStyle(color: Colors.black87,fontSize: 16),),
+//              child: inflateText('抽屉栏', Colors.black, 16),
             ),
           )
       ),
@@ -59,10 +61,10 @@ class _FirstPageState extends State<FirstPage> {
         selectedItemColor: Colors.blueAccent,
         unselectedItemColor: Colors.grey,
         items: [
-          _getBottomNavBarItem(Icons.hearing, '自由'),
-          _getBottomNavBarItem(Icons.settings, '健康'),
-          _getBottomNavBarItem(Icons.message, '财富'),
-          _getBottomNavBarItem(Icons.access_alarm, '爱情'),
+          inflateBottomNavBarItem(Icons.hearing, '自由'),
+          inflateBottomNavBarItem(Icons.settings, '健康'),
+          inflateBottomNavBarItem(Icons.message, '财富'),
+          inflateBottomNavBarItem(Icons.access_alarm, '爱情'),
         ],
         onTap: (int index){
           setState(() {
@@ -75,17 +77,3 @@ class _FirstPageState extends State<FirstPage> {
   }
 }
 
-BottomNavigationBarItem  _getBottomNavBarItem(IconData iconData,String title)=>BottomNavigationBarItem(icon: Icon(iconData),title: Text(title));
-
-Widget SelectView(IconData icon, String text, String id) {
-  return new PopupMenuItem<String>(
-      value: id,
-      child: new Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          new Icon(icon, color: Colors.blue),
-          new Text(text),
-        ],
-      )
-  );
-}
