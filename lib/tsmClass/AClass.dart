@@ -1,7 +1,7 @@
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_app1/textClass/Base.dart';
 import 'package:flutter_app1/utils.dart';
+
+import 'Base.dart';
 
 abstract class AClass {
 

@@ -5,12 +5,14 @@ import 'package:flutter_app1/utils.dart';
 import 'package:flutter_app1/widget/ViewInflate.dart';
 import 'package:flutter_app1/widget/TsmStateFulWidget.dart';
 
-class FirstPage extends StatefulWidget {
+class TsmScaffoldPage extends StatefulWidget {
   @override
   _FirstPageState createState() => _FirstPageState();
 }
-
-class _FirstPageState extends State<FirstPage> {
+/**
+ * 这个类主要写的Scaffold 这个控件
+ */
+class _FirstPageState extends State<TsmScaffoldPage> {
 
 
   int _currentIndex = 1;
@@ -98,8 +100,7 @@ class _FirstPageState extends State<FirstPage> {
         ],
         onTap: (int index) {
           setState(() {
-            MediaQueryData.fromWindow(WidgetsBinding.instance.window).padding.top;
-//            showModalBottomSheet(context: context, builder: (context) => getWidget(),);
+//            MediaQueryData.fromWindow(WidgetsBinding.instance.window).padding.top;
             printString(index);
             _currentIndex = index;
           });
