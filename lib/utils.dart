@@ -20,7 +20,7 @@ getAppHeight(BuildContext context)=> MediaQuery.of(context).size.height;
 getAppWidget(BuildContext context)=> MediaQuery.of(context).size.width;
 
 
-///通过 key 获取 widget 宽 高
+///通过 key 获取 widget 宽高
 List<double> getWidgetWidthAndHeight(GlobalKey  globalKey){
   double widght_widget = globalKey?.currentContext?.size?.width??0;
   double widght_height = globalKey?.currentContext?.size?.height??0;
