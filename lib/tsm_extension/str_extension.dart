@@ -1,3 +1,4 @@
+
 extension ExtensionString on String{
   /// 这个是属性
   bool  get  isPhone=> this.isEmpty?true:false;

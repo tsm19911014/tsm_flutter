@@ -15,6 +15,7 @@ class TsmScaffoldPage extends StatefulWidget {
 class _FirstPageState extends State<TsmScaffoldPage> {
 
 
+
   int _currentIndex = 1;
 
   @override
@@ -100,7 +101,6 @@ class _FirstPageState extends State<TsmScaffoldPage> {
         ],
         onTap: (int index) {
           setState(() {
-//            MediaQueryData.fromWindow(WidgetsBinding.instance.window).padding.top;
             printString(index);
             _currentIndex = index;
           });

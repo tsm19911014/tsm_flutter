@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../tsm_page_routes.dart';
 import 'ViewInflate.dart';
 import 'file:///D:/User/flutter_app1/lib/widget/item_widget.dart';
 import 'package:flutter_app1/utils.dart';
@@ -61,7 +62,7 @@ class _TsmStateFulState extends State<TsmStateFulWidget> {
 //          createBottomSheet(context);
 //          createModalBottomSheet(context);
           if(isFirst){
-            Navigator.of(context).pushNamed('/tsm/second',arguments: {'name':'value'}).then((value) => printString('返回结果$value'));
+            Navigator.of(context).pushNamed(page_routes_appbar,arguments: {'name':'value'}).then((value) => printString('返回结果$value'));
           }else{
             Navigator.of(context).pop('result');
           }

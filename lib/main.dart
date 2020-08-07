@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app1/tsm_page/TsmScaffoldPage.dart';
 import 'package:flutter_app1/tsm_page/TsmAppBarPage.dart';
+import 'package:flutter_app1/tsm_page_routes.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,8 +21,8 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       routes: {
-        '/tsm/first': (context)=>TsmScaffoldPage(),
-        '/tsm/second':(context)=>TsmAppBarPage(),
+        page_routes_scaffold: (context)=>TsmScaffoldPage(),
+        page_routes_appbar:(context)=>TsmAppBarPage(),
       },
       home: TsmScaffoldPage(),
     );
