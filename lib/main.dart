@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       routes: {
-        '/tsm/first': (_)=>TsmScaffoldPage(),
-        '/tsm/second':(_)=>TsmAppBarPage(),
+        '/tsm/first': (context)=>TsmScaffoldPage(),
+        '/tsm/second':(context)=>TsmAppBarPage(),
       },
       home: TsmScaffoldPage(),
     );
