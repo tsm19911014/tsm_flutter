@@ -1,0 +1,61 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import '../tsm_page_routes.dart';
+
+class TsmMainPage extends StatefulWidget {
+  @override
+  _TsmMainState createState() => _TsmMainState();
+
+
+}
+
+class _TsmMainState extends State<TsmMainPage> {
+
+
+  List<String> list;
+
+
+  @override
+  void initState() {
+    super.initState();
+    list = ['Scaffold 学习', 'AppBar学习', 'Container 学习'];
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      child: ListView.builder(itemBuilder: (BuildContext, int) =>
+          Container(
+            child: RaisedButton(
+              child: Center(
+                child: Text(list[int],style: TextStyle(color: Colors.black87,fontSize: 16),),
+              ),
+              onPressed: (){
+                _onPressedItem(context,int);
+              },
+            )
+          ), itemCount: list.length,),
+    );
+  }
+
+}
+
+
+void _onPressedItem(BuildContext context,int index){
+  switch(index){
+    case 0:
+      Navigator.of(context).pushNamed(page_routes_scaffold);
+      break;
+    case 1:
+      Navigator.of(context).pushNamed(page_routes_appbar);
+      break;
+    case 2:
+      Navigator.of(context).pushNamed(page_routes_container);
+      break;
+  }
+}
+
+

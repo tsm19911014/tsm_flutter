@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app1/tsm_page/TsmContainerPage.dart';
+import 'package:flutter_app1/tsm_page/TsmMainPage.dart';
 import 'package:flutter_app1/tsm_page/TsmScaffoldPage.dart';
 import 'package:flutter_app1/tsm_page/TsmAppBarPage.dart';
 import 'package:flutter_app1/tsm_page_routes.dart';
@@ -13,6 +15,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   @override
+
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
@@ -21,10 +24,11 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       routes: {
+        page_routes_container:(context) =>TsmContainerPage(),
         page_routes_scaffold: (context)=>TsmScaffoldPage(),
         page_routes_appbar:(context)=>TsmAppBarPage(),
       },
-      home: TsmScaffoldPage(),
+      home: TsmMainPage(),
     );
   }
 }
