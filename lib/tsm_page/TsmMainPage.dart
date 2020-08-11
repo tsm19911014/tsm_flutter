@@ -19,25 +19,30 @@ class _TsmMainState extends State<TsmMainPage> {
   @override
   void initState() {
     super.initState();
-    list = ['Scaffold 学习', 'AppBar学习', 'Container 学习'];
+    list = ['Scaffold 学习', 'AppBar学习', 'Container 学习','Row and Column'];
   }
 
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: ListView.builder(itemBuilder: (BuildContext, int) =>
-          Container(
-            child: RaisedButton(
-              child: Center(
-                child: Text(list[int],style: TextStyle(color: Colors.black87,fontSize: 16),),
-              ),
-              onPressed: (){
-                _onPressedItem(context,int);
-              },
-            )
-          ), itemCount: list.length,),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('主页'),
+      ),
+      body: Container(
+        color: Colors.white,
+        child: ListView.builder(itemBuilder: (BuildContext, int) =>
+            Container(
+                child: RaisedButton(
+                  child: Center(
+                    child: Text(list[int],style: TextStyle(color: Colors.black87,fontSize: 16),),
+                  ),
+                  onPressed: (){
+                    _onPressedItem(context,int);
+                  },
+                )
+            ), itemCount: list.length,),
+      ),
     );
   }
 
@@ -54,6 +59,9 @@ void _onPressedItem(BuildContext context,int index){
       break;
     case 2:
       Navigator.of(context).pushNamed(page_routes_container);
+      break;
+    case 3:
+      Navigator.of(context).pushNamed(page_routes_row_and_column);
       break;
   }
 }
