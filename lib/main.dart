@@ -4,6 +4,7 @@ import 'package:flutter_app1/tsm_page/TsmMainPage.dart';
 import 'package:flutter_app1/tsm_page/TsmRowAndColumnPage.dart';
 import 'package:flutter_app1/tsm_page/TsmScaffoldPage.dart';
 import 'package:flutter_app1/tsm_page/TsmAppBarPage.dart';
+import 'package:flutter_app1/tsm_page/TsmTextPage.dart';
 import 'package:flutter_app1/tsm_page_routes.dart';
 
 void main() {
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         page_routes_scaffold: (context)=>TsmScaffoldPage(),
         page_routes_appbar:(context)=>TsmAppBarPage(),
         page_routes_row_and_column:(context)=> TsmRowAndColumnPage(),
+        page_routes_text:(context)=>TsmTextPage(),
       },
       home: TsmMainPage(),
     );
