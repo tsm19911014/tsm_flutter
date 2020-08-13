@@ -19,7 +19,7 @@ class _TsmMainState extends State<TsmMainPage> {
   @override
   void initState() {
     super.initState();
-    list = ['Scaffold 学习', 'AppBar学习', 'Container 学习','Row and Column','Text 拼接,与富文本'];
+    list = ['Scaffold 学习', 'AppBar学习', 'Container 学习','Row and Column','Text 拼接,与富文本','TextField 输入框学习'];
   }
 
 
@@ -65,6 +65,9 @@ void _onPressedItem(BuildContext context,int index){
       break;
     case 4:
       Navigator.of(context).pushNamed(page_routes_text);
+      break;
+    case 5:
+      Navigator.of(context).pushNamed(page_routes_text_field);
       break;
   }
 }

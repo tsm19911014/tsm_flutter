@@ -46,7 +46,7 @@ class _TsmTextPageState extends State<TsmTextPage> {
 
                 ///最大行数
                 style: new TextStyle(
-                  decorationColor: Colors.redAccent,
+                  decorationColor: Colors.blue,
 
                   ///线的颜色
                   ///none无文字装饰   lineThrough删除线
@@ -76,6 +76,7 @@ class _TsmTextPageState extends State<TsmTextPage> {
                   ///文字颜色
                 ),
               ),
+
 
 //          -----------------------------------------------------------------------------------------------        ///
 
