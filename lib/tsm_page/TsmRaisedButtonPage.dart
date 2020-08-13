@@ -54,7 +54,7 @@ class _TsmRaisedButtonState extends State<TsmRaisedButtonPage> {
                * 上面这个链接就是介绍RaisedButton 这个按钮如果没有设置  onPressed  或者 没有设置 noLongPressed 就是disable 状态这里演示一下
                */
               RaisedButton(
-                child: Text("disabled状态下颜色设置"),
+                child: Text("上面按钮控制状态"),
                 onPressed: enable
                     ? () {
                         printString("正常状态");

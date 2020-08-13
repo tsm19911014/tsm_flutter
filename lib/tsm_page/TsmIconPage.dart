@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class TsmIconPage extends StatefulWidget{
   @override
@@ -17,14 +18,19 @@ class _TsmIconPageState extends State<TsmIconPage>{
     body: Container(
       color: Colors.white,
       height: double.infinity,
+      constraints: BoxConstraints(maxHeight: 50),
       child:  Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: const <Widget>[
+
+          /// 源码中介绍Icon 是一个方形的部件,如果设置的内容不是方形,显示可能有问题,
           Icon(
             Icons.favorite,
             color: Colors.pink,
             size: 24.0,
+            ///该字段是在 talkback等辅助功能时才会触发,测试有效,
             semanticLabel: 'Text to announce in accessibility modes',
           ),
           Icon(
