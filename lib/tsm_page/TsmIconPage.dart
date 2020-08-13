@@ -25,6 +25,8 @@ class _TsmIconPageState extends State<TsmIconPage>{
         crossAxisAlignment: CrossAxisAlignment.center,
         children: const <Widget>[
 
+//          Image(image: null,),
+
           /// 源码中介绍Icon 是一个方形的部件,如果设置的内容不是方形,显示可能有问题,
           Icon(
             Icons.favorite,
