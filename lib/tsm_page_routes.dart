@@ -24,3 +24,9 @@ const String page_routes_text=base_routes+"text";
 
 ///输入框学习
 const String  page_routes_text_field=base_routes+"text_field";
+
+///RaisedButton 学习
+const  String page_routes_raised_button=base_routes+"raised_button";
+
+///Icon 学习
+const  String page_routes_icon=base_routes+"icon";
