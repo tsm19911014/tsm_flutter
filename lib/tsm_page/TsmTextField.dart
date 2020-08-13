@@ -9,33 +9,34 @@ class TsmTextFieldPage extends StatefulWidget {
 }
 
 class _TsmTextFieldPageState extends State<TsmTextFieldPage> {
+  ///默认文本和获取文本框内容的
   TextEditingController _mController;
 
+
+  ///协助获取焦点
   FocusNode _mFocusNode;
 
+  /// error text  不为null时 显示 errorborder
   String _errorText;
-
+  /// 是否明文
   bool isSHow = false;
 
   @override
   void initState() {
     super.initState();
-    _mController = TextEditingController();
+    _mController = TextEditingController(text:'这个是默认文字');
     _mFocusNode = FocusNode();
     _mFocusNode.addListener(() {
-      printString(_mFocusNode.hasFocus);
+      printString('has Focus:${_mFocusNode.hasFocus}');
     });
   }
 
   void initTextField() {}
 
-  /// 给予焦点,并改变眼睛
+  /// 给予焦点
   void _getFocus() {
     FocusScope.of(context).requestFocus(_mFocusNode);
-    setState(() {
-      isSHow = !isSHow;
-      printString(isSHow);
-    });
+    printString(_mController.text);
   }
 
   @override
@@ -54,6 +55,7 @@ class _TsmTextFieldPageState extends State<TsmTextFieldPage> {
             Container(
               margin: const EdgeInsets.all(10),
               child: TextField(
+
                 controller: _mController,
 
                 ///用于帮助获取焦点
@@ -78,6 +80,7 @@ class _TsmTextFieldPageState extends State<TsmTextFieldPage> {
                 decoration: InputDecoration(
                   ///左侧图片,在输入框外部
                   icon: Icon(Icons.title),
+
 
                   /// 标题
                   labelText: '用户名',
@@ -104,8 +107,16 @@ class _TsmTextFieldPageState extends State<TsmTextFieldPage> {
 //                  prefix: Icon(Icons.book),
 
                   ///后缀  始终显示,获取焦点后变换颜色
-                  suffixIcon: Icon(Icons.remove_red_eye,
-                      color: isSHow ? Colors.blueAccent : Colors.grey),
+                  suffixIcon: GestureDetector(
+                    child: Icon(Icons.remove_red_eye,
+                        color: isSHow ? Colors.blueAccent : Colors.grey),
+                    onTap: () {
+                      setState(() {
+                        isSHow = !isSHow;
+                        printString(isSHow);
+                      });
+                    },
+                  ),
 
 //                  ///  后缀  获取焦点后显示
 //                  suffix: Icon(Icons.cancel),
@@ -124,7 +135,6 @@ class _TsmTextFieldPageState extends State<TsmTextFieldPage> {
                   disabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.blueAccent),
                   ),
-
 
                   /// 可以编辑的时候的边框
                   enabledBorder: OutlineInputBorder(
@@ -172,7 +182,7 @@ class _TsmTextFieldPageState extends State<TsmTextFieldPage> {
               child: TextField(),
             ),
             RaisedButton(
-              child: Text("获取焦点"),
+              child: Text("获取焦点,并打印打一个TextField内容"),
               onPressed: _getFocus,
             )
           ],
