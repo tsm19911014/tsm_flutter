@@ -1,5 +1,4 @@
 analyzer:
-
   enable-experiment:
     - extension-methods
   language:

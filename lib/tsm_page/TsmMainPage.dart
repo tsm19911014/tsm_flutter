@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app1/utils.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:flutter_app1/tsm_extension/str_extension.dart';
 
 import '../tsm_page_routes.dart';
 
@@ -22,7 +25,8 @@ class _TsmMainState extends State<TsmMainPage> {
       'Text 拼接,与富文本',
       'TextField 输入框学习',
       'RaisedButton 学习',
-      'Icon  学习'
+      'Icon  学习',
+      "Image 学习"
     ];
   }
 
@@ -54,7 +58,7 @@ class _TsmMainState extends State<TsmMainPage> {
   }
 }
 
-void _onPressedItem(BuildContext context, int index) {
+Future<void> _onPressedItem(BuildContext context, int index) async {
   switch (index) {
     case 0:
       Navigator.of(context).pushNamed(page_routes_scaffold);
@@ -79,6 +83,19 @@ void _onPressedItem(BuildContext context, int index) {
       break;
     case 7:
       Navigator.of(context).pushNamed(page_routes_icon);
+      break;
+    case 8:
+      [Permission.storage,Permission.camera].request()
+        ..then((value) {
+          if (value[0].isGranted&&value[1].isGranted) {
+            Navigator.of(context).pushNamed(page_routes_iamge);
+          }
+        });
+      //还有一种写法是
+//      var result = await Permission.storage.request();
+//      if (result.isGranted) {
+//        Navigator.of(context).pushNamed(page_routes_iamge);
+//      }
       break;
   }
 }

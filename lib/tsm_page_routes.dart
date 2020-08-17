@@ -30,3 +30,6 @@ const  String page_routes_raised_button=base_routes+"raised_button";
 
 ///Icon 学习
 const  String page_routes_icon=base_routes+"icon";
+
+///Image 学习
+const  String page_routes_iamge=base_routes+"image";

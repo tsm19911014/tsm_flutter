@@ -14,16 +14,22 @@ dependencies:
 
   flutter_html: ^1.0.0
   cupertino_icons: ^0.1.3
+  permission_handler: ^5.0.1+1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 flutter:
-
   uses-material-design: true
 
-fonts:
-  - family: FontAwesome
-    fonts:
-      - asset: fonts/FontAwesome.ttf
+
+#   - images/ 是将整个跟目录添加进去
+#  注意,这里比价坑的是  assets  前面2个空格 ,
+#  - image  -和images中间一个空格,
+#  稍微有一点差错都不行,
+  assets:
+      - images/
+      - images/1.0x/
+      - images/2.0x/
+      - images/3.0x/
