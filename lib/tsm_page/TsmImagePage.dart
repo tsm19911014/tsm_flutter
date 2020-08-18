@@ -2,8 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app1/utils.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 class TsmImagePage extends StatefulWidget {
 
@@ -76,6 +74,7 @@ class _TsmImagePageState extends State<TsmImagePage> {
                     new Padding(
                       padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
                       child: new FadeInImage.assetNetwork(
+                        ///加载过程中的占位图
                         placeholder: 'images/bg_baby_handbook_en.png',
                         image: imageUrl,
                         width: 120,
@@ -92,6 +91,7 @@ class _TsmImagePageState extends State<TsmImagePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
+                    ///圆形裁剪
                     new ClipOval(
                       child: Image.network(
                         imageUrl,
@@ -111,6 +111,7 @@ class _TsmImagePageState extends State<TsmImagePage> {
                         ),
                       ),
                     ),
+                    ///方形裁剪
                     new ClipRRect(
                       child: Image.network(
                         imageUrl,
@@ -155,8 +156,8 @@ class _TsmImagePageState extends State<TsmImagePage> {
                 padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                 child: new Image.asset(
                   'images/bg_baby_handbook_en.png',
-                  width: 250,
-                  height: 250,
+                  width: 400,
+                  height: 600,
                   fit: BoxFit.contain,
                   centerSlice:new Rect.fromCircle(center: const Offset(20, 20), radius: 1),
                 ),

@@ -87,8 +87,10 @@ Future<void> _onPressedItem(BuildContext context, int index) async {
     case 8:
       [Permission.storage,Permission.camera].request()
         ..then((value) {
-          if (value[0].isGranted&&value[1].isGranted) {
-            Navigator.of(context).pushNamed(page_routes_iamge);
+          if (value[Permission.storage].isGranted) {
+            if(value[Permission.camera].isGranted){
+              Navigator.of(context).pushNamed(page_routes_iamge);
+            }
           }
         });
       //还有一种写法是
