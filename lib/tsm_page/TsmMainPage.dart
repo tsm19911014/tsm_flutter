@@ -87,7 +87,7 @@ class _TsmMainState extends State<TsmMainPage> {
         color: Colors.white,
         child: ListView.builder(
           ///类似ios 月结回弹的效果,但是需要列表的长度必须沾满他的viewport
-          ///也就是子布局高度的综合必须大于listview 的实际高度度
+          ///也就是子布局高度的总和必须大于listview 的实际高度度
           physics: BouncingScrollPhysics(),
           controller: _controller,
           scrollDirection: _direction,
