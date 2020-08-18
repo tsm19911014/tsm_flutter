@@ -154,7 +154,6 @@ class _TsmMainState extends State<TsmMainPage> {
 //        Navigator.of(context).pushNamed(page_routes_iamge);
 //      }
         break;
-
       case 9:///切换方向
         setState(() {
           if(_direction==Axis.vertical){
