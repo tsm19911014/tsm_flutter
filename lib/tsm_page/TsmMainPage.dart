@@ -90,6 +90,9 @@ class _TsmMainState extends State<TsmMainPage> {
           ///也就是子布局高度的总和必须大于listview 的实际高度度
           physics: BouncingScrollPhysics(),
           controller: _controller,
+          ///看到 属性介绍primary 如果为真的时候即使他没有足够的高度来实际滚动他也会滚动,
+          ///但是要求 controller 为 null ,但是我哦试验了一下没有作用
+//          primary: true,
           scrollDirection: _direction,
           itemBuilder: (BuildContext, int) => Container(
               child: RaisedButton(
