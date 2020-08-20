@@ -8,24 +8,24 @@ class ScrollBasePage extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> list = ["SingleChildScrollView", 'GridView'];
     return Scaffold(
-        appBar: AppBar(
-          title: Text('ScrollView 集合'),
-          centerTitle: true,
+      appBar: AppBar(
+        title: Text('ScrollView 集合'),
+        centerTitle: true,
+      ),
+      body: ListView.builder(
+        physics: BouncingScrollPhysics(),
+        itemCount: list.length,
+        itemBuilder: (context, index) => LayoutBuilder(
+          builder: (context, cons) => SizedBox(
+            width: cons.maxWidth,
+            child: RaisedButton(
+              child: Text(list[index]),
+              onPressed: () => clickItem(context, index),
+            ),
+          ),
         ),
-        body: ListView.builder(
-            physics: BouncingScrollPhysics(),
-            itemCount: list.length,
-            itemBuilder: (context, index) => LayoutBuilder(
-                  builder: (context, cons) {
-                    return SizedBox(
-                      width: cons.maxWidth,
-                      child: RaisedButton(
-                        child: Text(list[index]),
-                        onPressed: () => clickItem(context, index),
-                      ),
-                    );
-                  },
-                )));
+      ),
+    );
   }
 
   void clickItem(BuildContext context, int index) {
