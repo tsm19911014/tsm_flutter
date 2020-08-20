@@ -12,7 +12,6 @@ class TsmSingleChildScrollViewPage extends StatelessWidget {
       ),
       body: Scrollbar(
         ///添加进度条
-        ///
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(15),
           child: Column(
