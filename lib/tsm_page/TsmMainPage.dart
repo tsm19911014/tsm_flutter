@@ -85,7 +85,7 @@ class _TsmMainState extends State<TsmMainPage> {
       ),
       body: Container(
         color: Colors.white,
-        child: ListView.builder(
+        child: ListView.separated(
           ///类似ios 月结回弹的效果,但是需要列表的长度必须沾满他的viewport
           ///也就是子布局高度的总和必须大于listview 的实际高度度
           physics: BouncingScrollPhysics(),
@@ -93,9 +93,10 @@ class _TsmMainState extends State<TsmMainPage> {
           ///看到 属性介绍primary 如果为真的时候即使他没有足够的高度来实际滚动他也会滚动,
           ///但是要求 controller 为 null ,但是我哦试验了一下没有作用
 //          primary: true,
+          separatorBuilder: (con,index)=>Divider(),
           scrollDirection: _direction,
           itemBuilder: (BuildContext, int) => Container(
-              child: RaisedButton(
+              child: FlatButton(
                 child: Center(
                   child: Text(
                     list[int],

@@ -39,12 +39,16 @@ class _TsmTextPageState extends State<TsmTextPage> {
                 ///TextOverflow.fade 渐隐  TextOverflow.ellipsis省略号
                 overflow: TextOverflow.ellipsis,
 
+                ///字体显示的赔率
                 textScaleFactor: 2.0,
 
-                ///字体显示的赔率
+                ///最大行数
                 maxLines: 10,
 
-                ///最大行数
+                strutStyle: StrutStyle(
+
+                ),
+
                 style: new TextStyle(
                   decorationColor: Colors.blue,
 
@@ -56,6 +60,7 @@ class _TsmTextPageState extends State<TsmTextPage> {
                   ///文字装饰的风格  dashed,dotted虚线(简短间隔大小区分)
                   ///  double三条线  solid两条线
                   decorationStyle: TextDecorationStyle.solid,
+
                   wordSpacing: 0.0,
 
                   ///单词间隙(负值可以让单词更紧凑)
