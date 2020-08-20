@@ -10,7 +10,6 @@ class ScrollBasePage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text('ScrollView 集合'),
-
           centerTitle: true,
         ),
         body: ListView.builder(
