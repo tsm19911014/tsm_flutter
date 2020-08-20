@@ -51,7 +51,7 @@ class _TsmMainState extends State<TsmMainPage> {
       'Icon  学习',
       "Image 学习",
       '改变listView方向',
-      'Icon  学习',
+      'TsmSingleChildScrollViewPage  学习',
       'Icon  学习',
       'Icon  学习',
       'Icon  学习',
@@ -165,6 +165,9 @@ class _TsmMainState extends State<TsmMainPage> {
             _direction=Axis.vertical;
           }
         });
+        break;
+      case 10:
+        Navigator.of(context).pushNamed(page_routes_single_child_scroll_view);
         break;
     }
   }

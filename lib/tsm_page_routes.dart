@@ -33,3 +33,7 @@ const  String page_routes_icon=base_routes+"icon";
 
 ///Image 学习
 const  String page_routes_iamge=base_routes+"image";
+
+
+///TsmSingleChildScrollViewPage 学习
+const  String page_routes_single_child_scroll_view=base_routes+"single_child_scroll_view";

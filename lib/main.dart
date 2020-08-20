@@ -7,6 +7,7 @@ import 'package:flutter_app1/tsm_page/TsmRaisedButtonPage.dart';
 import 'package:flutter_app1/tsm_page/TsmRowAndColumnPage.dart';
 import 'package:flutter_app1/tsm_page/TsmScaffoldPage.dart';
 import 'package:flutter_app1/tsm_page/TsmAppBarPage.dart';
+import 'package:flutter_app1/tsm_page/TsmSingleChildScrollViewPage.dart';
 import 'package:flutter_app1/tsm_page/TsmTextField.dart';
 import 'package:flutter_app1/tsm_page/TsmTextPage.dart';
 import 'package:flutter_app1/tsm_page_routes.dart';
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         page_routes_raised_button:(context)=>TsmRaisedButtonPage(),
         page_routes_icon:(context)=>TsmIconPage(),
         page_routes_iamge:(context)=>TsmImagePage(),
+        page_routes_single_child_scroll_view:(context)=>TsmSingleChildScrollViewPage(),
       },
       home: TsmMainPage(),
     );
