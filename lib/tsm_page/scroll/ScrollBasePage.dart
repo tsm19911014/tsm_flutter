@@ -6,7 +6,7 @@ import '../../tsm_page_routes.dart';
 class ScrollBasePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<String> list = ["SingleChildScrollView"];
+    List<String> list = ["SingleChildScrollView", 'GridView'];
     return Scaffold(
         appBar: AppBar(
           title: Text('ScrollView 集合'),
@@ -32,6 +32,9 @@ class ScrollBasePage extends StatelessWidget {
     switch (index) {
       case 0:
         Navigator.of(context).pushNamed(page_routes_single_child_scroll_view);
+        break;
+      case 1:
+        Navigator.of(context).pushNamed(page_routes_grid_view);
         break;
     }
   }

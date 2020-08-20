@@ -40,3 +40,8 @@ const  String page_routes_single_child_scroll_view=base_routes+"single_child_scr
 
 ///ScrollView 分支
 const  String page_routes_scroll_base=base_routes+"page_routes_scroll_base";
+
+///ScrollView 分支
+const  String page_routes_grid_view=base_routes+"page_routes_grid_view";
+
+
