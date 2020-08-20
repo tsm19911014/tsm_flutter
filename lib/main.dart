@@ -5,6 +5,7 @@ import 'file:///D:/User/flutter_app1/lib/tsm_page/image/TsmIconPage.dart';
 import 'file:///D:/User/flutter_app1/lib/tsm_page/image/TsmImagePage.dart';
 import 'package:flutter_app1/tsm_page/TsmMainPage.dart';
 import 'package:flutter_app1/tsm_page/scroll/TsmGridViewPage.dart';
+import 'package:flutter_app1/tsm_page/scroll/TsmListViewPage.dart';
 import 'file:///D:/User/flutter_app1/lib/tsm_page/button/TsmRaisedButtonPage.dart';
 import 'file:///D:/User/flutter_app1/lib/tsm_page/layout/TsmRowAndColumnPage.dart';
 import 'file:///D:/User/flutter_app1/lib/tsm_page/main/TsmScaffoldPage.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
         page_routes_single_child_scroll_view:(context)=>TsmSingleChildScrollViewPage(),
         page_routes_scroll_base:(context)=>ScrollBasePage(),
         page_routes_grid_view:(context)=>TsmGridViewPage(),
+        page_routes_list_view:(context)=>TsmListViewPage(),
       },
       home: TsmMainPage(),
     );

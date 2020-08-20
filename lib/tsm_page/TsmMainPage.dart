@@ -17,10 +17,9 @@ class TsmMainPage extends StatefulWidget {
 
 class _TsmMainState extends State<TsmMainPage> {
   List<String> list;
-  ScrollController  _controller;
+  ScrollController _controller;
 
-  var _direction=Axis.vertical;
-
+  var _direction = Axis.vertical;
 
   @override
   void dispose() {
@@ -28,17 +27,16 @@ class _TsmMainState extends State<TsmMainPage> {
     super.dispose();
   }
 
-  void lis(){
-    printString('offset:${_controller.offset}     positon:${_controller.position}');
+  void lis() {
+    printString(
+        'offset:${_controller.offset}     positon:${_controller.position}');
   }
-
-
-
 
   @override
   void initState() {
     super.initState();
-    _controller=ScrollController(initialScrollOffset: 50,keepScrollOffset: true);
+    _controller =
+        ScrollController(initialScrollOffset: 50, keepScrollOffset: true);
     _controller.addListener(lis);
     list = [
       'Scaffold 学习',
@@ -75,47 +73,47 @@ class _TsmMainState extends State<TsmMainPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('主页 ListView 属性'),
-        centerTitle: true ,
+        centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
         child: inflateText("跳跃", Colors.white, 15),
-        onPressed:(){
-          _controller.animateTo(100, duration: Duration(milliseconds: 500), curve: Curves.ease);
+        onPressed: () {
+          _controller.animateTo(100,
+              duration: Duration(milliseconds: 500), curve: Curves.ease);
         },
       ),
       body: Container(
         color: Colors.white,
-        child: ListView.separated(
-          ///类似ios 月结回弹的效果,但是需要列表的长度必须沾满他的viewport
-          ///也就是子布局高度的总和必须大于listview 的实际高度度
-          physics: BouncingScrollPhysics(),
-          controller: _controller,
-          ///看到 属性介绍primary 如果为真的时候即使他没有足够的高度来实际滚动他也会滚动,
-          ///但是要求 controller 为 null ,但是我哦试验了一下没有作用
+        child: Scrollbar(
+          child: ListView.separated(
+            ///类似ios 月结回弹的效果,但是需要列表的长度必须沾满他的viewport
+            ///也就是子布局高度的总和必须大于listview 的实际高度度
+            physics: BouncingScrollPhysics(),
+            controller: _controller,
+
+            ///看到 属性介绍primary 如果为真的时候即使他没有足够的高度来实际滚动他也会滚动,
+            ///但是要求 controller 为 null ,但是我哦试验了一下没有作用
 //          primary: true,
-          separatorBuilder: (con,index)=>Divider(),
-          scrollDirection: _direction,
-          itemBuilder: (BuildContext, int) => Container(
-              child: FlatButton(
-                child: Center(
-                  child: Text(
-                    list[int],
-                    style: TextStyle(color: Colors.black87, fontSize: 16),
-                  ),
+            separatorBuilder: (con, index) => Divider(),
+            scrollDirection: _direction,
+            itemBuilder: (BuildContext, int) => Container(
+                child: FlatButton(
+              child: Center(
+                child: Text(
+                  list[int],
+                  style: TextStyle(color: Colors.black87, fontSize: 16),
                 ),
-                onPressed: () {
-                  _onPressedItem(context, int);
-                },
-              )),
-          itemCount: list.length,
+              ),
+              onPressed: () {
+                _onPressedItem(context, int);
+              },
+            )),
+            itemCount: list.length,
+          ),
         ),
       ),
     );
   }
-
-
-
-
 
   Future<void> _onPressedItem(BuildContext context, int index) async {
     switch (index) {
@@ -158,12 +156,14 @@ class _TsmMainState extends State<TsmMainPage> {
 //        Navigator.of(context).pushNamed(page_routes_iamge);
 //      }
         break;
-      case 9:///切换方向
+      case 9:
+
+        ///切换方向
         setState(() {
-          if(_direction==Axis.vertical){
-            _direction=Axis.horizontal;
-          }else{
-            _direction=Axis.vertical;
+          if (_direction == Axis.vertical) {
+            _direction = Axis.horizontal;
+          } else {
+            _direction = Axis.vertical;
           }
         });
         break;
@@ -172,10 +172,4 @@ class _TsmMainState extends State<TsmMainPage> {
         break;
     }
   }
-
-
-
-
 }
-
-
