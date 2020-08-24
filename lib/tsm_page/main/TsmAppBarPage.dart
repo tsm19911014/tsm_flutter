@@ -7,9 +7,12 @@ import 'package:flutter_app1/widget/ViewInflate.dart';
 /**
  * 这个类主要写AppBar这个控件
  */
+// ignore: must_be_immutable
 class TsmAppBarPage extends StatefulWidget {
+
   @override
   _SecondPageSate createState() => _SecondPageSate();
+
 }
 
 class _SecondPageSate extends State<TsmAppBarPage> with SingleTickerProviderStateMixin{
@@ -31,14 +34,18 @@ class _SecondPageSate extends State<TsmAppBarPage> with SingleTickerProviderStat
   @override
   void initState() {
     // TODO: implement initState
-    _tabController = TabController(vsync: this, length: _tabs.length);
     super.initState();
-
+    _tabController = TabController(vsync: this, length: _tabs.length);
   }
 
 
   @override
   Widget build(BuildContext context) {
+    var arg=ModalRoute.of(context).settings.arguments;
+    if(arg !=null){
+      printString('arguments:'+arg);
+    }
+
     MediaQueryData.fromWindow(WidgetsBinding.instance.window)
         .padding
         .top; ////状态栏高度
@@ -47,7 +54,6 @@ class _SecondPageSate extends State<TsmAppBarPage> with SingleTickerProviderStat
         data: MediaQueryData.fromWindow(WidgetsBinding.instance.window)
             .copyWith(textScaleFactor: 1),///禁止字体缩放
         child: Container());
-
     return Scaffold(
       appBar: AppBar(
         title: Text('This is SecondPage'),

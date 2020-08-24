@@ -9,6 +9,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter_app1/tsm_extension/str_extension.dart';
 
 import '../tsm_page_routes.dart';
+import 'main/TsmScaffoldPage.dart';
 
 class TsmMainPage extends StatefulWidget {
   @override
@@ -36,7 +37,7 @@ class _TsmMainState extends State<TsmMainPage> {
   void initState() {
     super.initState();
     _controller =
-        ScrollController(initialScrollOffset: 50, keepScrollOffset: true);
+        ScrollController(initialScrollOffset: 0, keepScrollOffset: true);
     _controller.addListener(lis);
     list = [
       'Scaffold 学习',
@@ -118,10 +119,13 @@ class _TsmMainState extends State<TsmMainPage> {
   Future<void> _onPressedItem(BuildContext context, int index) async {
     switch (index) {
       case 0:
-        Navigator.of(context).pushNamed(page_routes_scaffold);
+        Navigator.of(context).push(MaterialPageRoute(builder: (context){
+          return TsmScaffoldPage();
+        },settings: RouteSettings(arguments: 'value'))).then((value) => printString(value));
+//        Navigator.of(context).pushNamed(page_routes_scaffold);
         break;
       case 1:
-        Navigator.of(context).pushNamed(page_routes_appbar);
+        Navigator.of(context).pushNamed(page_routes_appbar,arguments: 'test');
         break;
       case 2:
         Navigator.of(context).pushNamed(page_routes_container);

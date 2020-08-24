@@ -21,34 +21,34 @@ class _TsmStateFulState extends State<TsmStateFulWidget> {
 
   _TsmStateFulState(this.conetent, this.isFirst);
 
-  @override
-  void initState() {
-    super.initState();
-    printString(
-        'TsmStateFulWidget   initState'); ////类似于 onCreate 创建时才执行,整个生命周期中只执行一次
-//    Future.delayed(const  Duration(seconds: 5),_onClickListeners);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    printString(
-        'TsmStateFulWidget dispose'); ////类似于 onDestroy 销毁才执行,整个生命周期中只执行一次
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    printString('TsmStateFulWidget  didChangeDependencies'); ////状态发生变化后执行
-  }
-
-  @override
-  void didUpdateWidget(TsmStateFulWidget oldWidget) {
-    printString('TsmStateFulWidget  didUpdateWidget');
-    super.didUpdateWidget(oldWidget);
-
-    ///当自身的状态发生变化时子节点该方法会被调用
-  }
+//  @override
+//  void initState() {
+//    super.initState();
+//    printString(
+//        'TsmStateFulWidget   initState'); ////类似于 onCreate 创建时才执行,整个生命周期中只执行一次
+////    Future.delayed(const  Duration(seconds: 5),_onClickListeners);
+//  }
+//
+//  @override
+//  void dispose() {
+//    super.dispose();
+//    printString(
+//        'TsmStateFulWidget dispose'); ////类似于 onDestroy 销毁才执行,整个生命周期中只执行一次
+//  }
+//
+//  @override
+//  void didChangeDependencies() {
+//    super.didChangeDependencies();
+//    printString('TsmStateFulWidget  didChangeDependencies'); ////状态发生变化后执行
+//  }
+//
+//  @override
+//  void didUpdateWidget(TsmStateFulWidget oldWidget) {
+//    printString('TsmStateFulWidget  didUpdateWidget');
+//    super.didUpdateWidget(oldWidget);
+//
+//    ///当自身的状态发生变化时子节点该方法会被调用
+//  }
 
   int _count = 0;
 
@@ -62,7 +62,7 @@ class _TsmStateFulState extends State<TsmStateFulWidget> {
 //          createBottomSheet(context);
 //          createModalBottomSheet(context);
           if(isFirst){
-            Navigator.of(context).pushNamed(page_routes_appbar,arguments: {'name':'value'}).then((value) => printString('返回结果$value'));
+            Navigator.of(context).pushNamed(page_routes_appbar,arguments: 'value').then((value) => printString('返回结果$value'));
           }else{
             Navigator.of(context).pop('result');
           }
