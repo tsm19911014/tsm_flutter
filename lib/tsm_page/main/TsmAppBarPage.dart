@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app1/utils.dart';
 import 'package:flutter_app1/widget/TsmStateFulWidget.dart';
-import 'package:flutter_app1/widget/ViewInflate.dart';
 
 /**
  * 这个类主要写AppBar这个控件

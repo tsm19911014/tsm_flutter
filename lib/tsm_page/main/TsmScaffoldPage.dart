@@ -66,6 +66,7 @@ class _FirstPageState extends State<TsmScaffoldPage> {
       drawerEnableOpenDragGesture: true,
 
       floatingActionButton: FloatingActionButton(
+        onPressed: () {  },
         child: inflateText('内容', Colors.white, 14),
       ),
 

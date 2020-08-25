@@ -1,12 +1,9 @@
-import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app1/utils.dart';
 import 'package:flutter_app1/widget/ViewInflate.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:flutter_app1/tsm_extension/str_extension.dart';
 
 import '../tsm_page_routes.dart';
 import 'main/TsmScaffoldPage.dart';

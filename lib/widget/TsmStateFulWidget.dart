@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../tsm_page_routes.dart';
 import 'ViewInflate.dart';
-import 'file:///D:/User/flutter_app1/lib/widget/item_widget.dart';
 import 'package:flutter_app1/utils.dart';
 
 class TsmStateFulWidget extends StatefulWidget {
@@ -50,7 +49,6 @@ class _TsmStateFulState extends State<TsmStateFulWidget> {
 //    ///当自身的状态发生变化时子节点该方法会被调用
 //  }
 
-  int _count = 0;
 
   @override
   Widget build(BuildContext context) {

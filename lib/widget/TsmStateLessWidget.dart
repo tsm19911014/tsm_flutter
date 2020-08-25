@@ -6,9 +6,6 @@ class TsmStateLessWidget extends StatelessWidget {
 
   TsmStateLessWidget(this.content);
 
-  @override
-  void initState(){
-  }
 
   @override
   Widget build(BuildContext context) {
