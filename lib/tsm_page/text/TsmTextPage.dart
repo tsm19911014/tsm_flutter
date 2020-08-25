@@ -61,24 +61,30 @@ class _TsmTextPageState extends State<TsmTextPage> {
                   ///  double三条线  solid两条线
                   decorationStyle: TextDecorationStyle.solid,
 
+                  ///单词间隙(负值可以让单词更紧凑)
                   wordSpacing: 0.0,
 
-                  ///单词间隙(负值可以让单词更紧凑)
-                  letterSpacing: 0.0,
 
                   ///字母间隙(负值可以让字母更紧凑)
-                  fontStyle: FontStyle.italic,
+                  letterSpacing: 0.0,
+
 
                   ///文字样式，斜体和正常
-                  fontSize: 20.0,
+                  fontStyle: FontStyle.italic,
+
 
                   ///字体大小
-                  fontWeight: FontWeight.w900,
+                  fontSize: 20.0,
+
 
                   ///字体粗细  粗体和正常
+                  fontWeight: FontWeight.w900,
+
+
+                  /// ///文字颜色
                   color: Colors.redAccent,
 
-                  ///文字颜色
+
                 ),
               ),
 

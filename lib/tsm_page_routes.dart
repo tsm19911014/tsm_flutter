@@ -47,3 +47,7 @@ const  String page_routes_grid_view=base_routes+"page_routes_grid_view";
 
 ///ListView 学习
 const  String page_routes_list_view=base_routes+"page_routes_list_view";
+
+
+///View 实战练习 写完布局后再调试一下性能
+const String page_routes_flight_dyn=base_routes+'flight_dyn';
