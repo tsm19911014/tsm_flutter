@@ -14,18 +14,21 @@ class _TsmFlightDynState extends State<TsmFlightDynPage> {
         title: Text('模仿国航航班动态'),
         centerTitle: true,
       ),
-      body:ColoredBox(
+      body:ColoredBox(///设置背景颜色
         color: Color.fromARGB(255, 244, 245, 247),
-        child: SizedBox(
+        child: SizedBox(///让背景填充整个屏幕
           height: double.infinity,
           width: double.infinity,
-          child: Scrollbar(
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
+          child: Scrollbar(///滑动距离
+            child: Padding(//
+              padding: const EdgeInsets.only(left: 10,right: 10),
+              child: SingleChildScrollView(///嵌套滑动布局
+                physics: BouncingScrollPhysics(),///越界回弹效果
                 child: Column(
                   children: <Widget>[
+                    SizedBox(
+                      height: 10,
+                    ),
                     _getFirstWiget(),
                     SizedBox(
                       height: 10,
