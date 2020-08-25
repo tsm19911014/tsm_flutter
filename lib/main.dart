@@ -50,15 +50,16 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-///   经测试这个东西必须    与  routes  中的配置互斥,如果在routes 中配置了,
-///   则该回调不起作用,可以利用map 来操作,先把map加载进来,
-///   同样的原理,不过可以控制跳转
+
+      ///   经测试这个东西必须    与  routes  中的配置互斥,如果在routes 中配置了,
+      ///   则该回调不起作用,可以利用map 来操作,先把map加载进来,
+      ///   同样的原理,不过可以控制跳转
       onGenerateRoute: (settings) {
         printString('onGenerateRoute');
         return MaterialPageRoute(builder: (context) {
           String routeName = settings.name;
           printString(routeName);
-          if(_route.containsKey(routeName)){
+          if (_route.containsKey(routeName)) {
             return _route[routeName];
           }
           return TsmScaffoldPage();
