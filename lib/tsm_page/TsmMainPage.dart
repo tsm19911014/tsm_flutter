@@ -49,7 +49,7 @@ class _TsmMainState extends State<TsmMainPage> {
       '改变listView方向',
       'ScrollView  集合',
       '国航航班动态练习',
-      'Icon  学习',
+      'Switch Checkbox  学习',
       'Icon  学习',
       'Icon  学习',
       'Icon  学习',
@@ -174,6 +174,10 @@ class _TsmMainState extends State<TsmMainPage> {
       case 11:
         Navigator.of(context).pushNamed(page_routes_flight_dyn);
         break;
+      case 12:
+        Navigator.of(context).pushNamed(page_routes_check_widget);
+        break;
     }
+
   }
 }

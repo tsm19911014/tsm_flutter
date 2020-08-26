@@ -51,3 +51,7 @@ const  String page_routes_list_view=base_routes+"page_routes_list_view";
 
 ///View 实战练习 写完布局后再调试一下性能
 const String page_routes_flight_dyn=base_routes+'flight_dyn';
+
+
+///Switch Checkbox
+const String page_routes_check_widget=base_routes+'switch_and_checkbox';
