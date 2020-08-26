@@ -59,3 +59,6 @@ const String page_routes_check_widget=base_routes+'switch_and_checkbox';
 
 ///ProgressIndicator
 const String page_routes_progress_indicator=base_routes+'progress_indicator';
+
+///Wrap
+const String page_routes_wrap=base_routes+'wrap';

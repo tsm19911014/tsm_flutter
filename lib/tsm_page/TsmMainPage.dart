@@ -16,9 +16,8 @@ class TsmMainPage extends StatefulWidget {
 class _TsmMainState extends State<TsmMainPage> {
   List<String> list;
   ScrollController _controller;
-
   var _direction = Axis.vertical;
-
+  DateTime _lastPressedAt; //上次点击时间
   @override
   void dispose() {
     _controller?.removeListener(lis);
@@ -51,7 +50,7 @@ class _TsmMainState extends State<TsmMainPage> {
       '国航航班动态练习',
       'Switch Checkbox  学习',
       'ProgressIndicator  学习',
-      'Icon  学习',
+      'Wrap  学习',
       'Icon  学习',
       'Icon  学习',
       'Icon  学习',
@@ -68,45 +67,64 @@ class _TsmMainState extends State<TsmMainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('主页 ListView 属性'),
-        centerTitle: true,
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: inflateText("跳跃", Colors.white, 15),
-        onPressed: () {
-          _controller.animateTo(100,
-              duration: Duration(milliseconds: 500), curve: Curves.ease);
-        },
-      ),
-      body: Container(
-        color: Colors.white,
-        child: Scrollbar(
-          child: ListView.separated(
-            ///类似ios 月结回弹的效果,但是需要列表的长度必须沾满他的viewport
-            ///也就是子布局高度的总和必须大于listview 的实际高度度
-            physics: BouncingScrollPhysics(),
-            controller: _controller,
+    /**
+     * WillPopScope  用法是用来确定是否放过返回事件,
+     */
+    return WillPopScope(
+      /**
+       * async 用法 The analyzer produces this diagnostic when the body of a function has the async modifier even though the return type of the function isn’t assignable to Future.
+       * 当函数体具有async修饰符时，即使函数的返回类型不可分配给Future，分析器也会生成此诊断。
+       */
+      onWillPop: () async {///双击退出
+        if (_lastPressedAt == null ||
+            DateTime.now().difference(_lastPressedAt) > Duration(seconds: 1)) {
+          //两次点击间隔超过1秒则重新计时
+          _lastPressedAt = DateTime.now();
+          printString('双击退出');
+          return false;
+        }
+        return true;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('主页 ListView 属性'),
+          centerTitle: true,
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: inflateText("跳跃", Colors.white, 15),
+          onPressed: () {
+            _controller.animateTo(100,
+                duration: Duration(milliseconds: 500), curve: Curves.ease);
+          },
+        ),
+        body: Container(
+          color: Colors.white,
+          child: Scrollbar(
+            child: ListView.separated(
+              ///类似ios 月结回弹的效果,但是需要列表的长度必须沾满他的viewport
+              ///也就是子布局高度的总和必须大于listview 的实际高度度
+              physics: BouncingScrollPhysics(),
+              controller: _controller,
 
-            ///看到 属性介绍primary 如果为真的时候即使他没有足够的高度来实际滚动他也会滚动,
-            ///但是要求 controller 为 null ,但是我哦试验了一下没有作用
+              ///看到 属性介绍primary 如果为真的时候即使他没有足够的高度来实际滚动他也会滚动,
+              ///但是要求 controller 为 null ,但是我哦试验了一下没有作用
 //          primary: true,
-            separatorBuilder: (con, index) => Divider(),
-            scrollDirection: _direction,
-            itemBuilder: (BuildContext, int) => Container(
-                child: FlatButton(
-              child: Center(
-                child: Text(
-                  list[int],
-                  style: TextStyle(color: Colors.black87, fontSize: 16),
-                ),
-              ),
-              onPressed: () {
-                _onPressedItem(context, int);
-              },
-            )),
-            itemCount: list.length,
+              separatorBuilder: (con, index) => Divider(),
+              scrollDirection: _direction,
+              itemBuilder: (BuildContext, int) => Container(
+                  child: FlatButton(
+                    child: Center(
+                      child: Text(
+                        list[int],
+                        style: TextStyle(color: Colors.black87, fontSize: 16),
+                      ),
+                    ),
+                    onPressed: () {
+                      _onPressedItem(context, int);
+                    },
+                  )),
+              itemCount: list.length,
+            ),
           ),
         ),
       ),
@@ -179,6 +197,9 @@ class _TsmMainState extends State<TsmMainPage> {
         break;
       case 13:
         Navigator.of(context).pushNamed(page_routes_progress_indicator);
+        break;
+      case 14:
+        Navigator.of(context).pushNamed(page_routes_wrap);
         break;
     }
 

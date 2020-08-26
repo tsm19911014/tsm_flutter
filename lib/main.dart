@@ -9,6 +9,7 @@ import 'package:flutter_app1/tsm_page/progress_indicator/TsmProgressIndicatorPag
 import 'package:flutter_app1/tsm_page/scroll/TsmGridViewPage.dart';
 import 'package:flutter_app1/tsm_page/scroll/TsmListViewPage.dart';
 import 'package:flutter_app1/tsm_page/tsm_flight_dyn_page.dart';
+import 'package:flutter_app1/tsm_page/wrap/TsmWrapPage.dart';
 import 'file:///D:/User/flutter_app1/lib/tsm_page/button/TsmRaisedButtonPage.dart';
 import 'file:///D:/User/flutter_app1/lib/tsm_page/layout/TsmRowAndColumnPage.dart';
 import 'file:///D:/User/flutter_app1/lib/tsm_page/main/TsmScaffoldPage.dart';
@@ -47,6 +48,7 @@ class MyApp extends StatelessWidget {
       page_routes_flight_dyn: TsmFlightDynPage(),
       page_routes_check_widget: TsmCheckPage(),
       page_routes_progress_indicator: TsmProgressIndicatorPage(),
+      page_routes_wrap: TsmWarpPage(),
     };
 
     return MaterialApp(
