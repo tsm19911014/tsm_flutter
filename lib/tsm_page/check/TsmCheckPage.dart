@@ -28,9 +28,8 @@ class _TsmCheckPageState extends State<TsmCheckPage> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Switch(
-                  value: isSelectSwitch,
 
-                  materialTapTargetSize:MaterialTapTargetSize.shrinkWrap,
+                  value: isSelectSwitch,
 
                   ///  勾选后颜色
                   activeColor: Colors.greenAccent,
