@@ -113,11 +113,10 @@ class _TsmMainState extends State<TsmMainPage> {
               scrollDirection: _direction,
               itemBuilder: (BuildContext, int) => Container(
                   child: FlatButton(
-                    child: Center(
-                      child: Text(
-                        list[int],
-                        style: TextStyle(color: Colors.black87, fontSize: 16),
-                      ),
+                    highlightColor: Colors.transparent,
+                    child:  Text(
+                      list[int],
+                      style: TextStyle(color: Colors.black87, fontSize: 16),
                     ),
                     onPressed: () {
                       _onPressedItem(context, int);
