@@ -50,7 +50,7 @@ class _TsmMainState extends State<TsmMainPage> {
       'ScrollView  集合',
       '国航航班动态练习',
       'Switch Checkbox  学习',
-      'Icon  学习',
+      'ProgressIndicator  学习',
       'Icon  学习',
       'Icon  学习',
       'Icon  学习',
@@ -176,6 +176,9 @@ class _TsmMainState extends State<TsmMainPage> {
         break;
       case 12:
         Navigator.of(context).pushNamed(page_routes_check_widget);
+        break;
+      case 13:
+        Navigator.of(context).pushNamed(page_routes_progress_indicator);
         break;
     }
 

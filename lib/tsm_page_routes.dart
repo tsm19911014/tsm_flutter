@@ -55,3 +55,7 @@ const String page_routes_flight_dyn=base_routes+'flight_dyn';
 
 ///Switch Checkbox
 const String page_routes_check_widget=base_routes+'switch_and_checkbox';
+
+
+///ProgressIndicator
+const String page_routes_progress_indicator=base_routes+'progress_indicator';

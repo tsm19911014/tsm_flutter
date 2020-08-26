@@ -152,8 +152,8 @@ class _TsmTextFieldPageState extends State<TsmTextFieldPage> {
                   ///长度 最大10位
                   LengthLimitingTextInputFormatter(10),
 
-                  ///黑名单  除了黑名单的都可以  也有白名单
-                  BlacklistingTextInputFormatter(RegExp('[A-G]'))
+//                  ///黑名单  除了黑名单的都可以  也有白名单
+//                  BlacklistingTextInputFormatter(RegExp('[A-G]'))
                 ],
 
                 ///输入信息改变后回调
