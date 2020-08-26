@@ -72,7 +72,7 @@ class _TsmMainState extends State<TsmMainPage> {
      */
     return WillPopScope(
       /**
-       * async 用法 The analyzer produces this diagnostic when the body of a function has the async modifier even though the return type of the function isn’t assignable to Future.
+       * async 用法  官网介绍  The analyzer produces this diagnostic when the body of a function has the async modifier even though the return type of the function isn’t assignable to Future.
        * 当函数体具有async修饰符时，即使函数的返回类型不可分配给Future，分析器也会生成此诊断。
        */
       onWillPop: () async {///双击退出
