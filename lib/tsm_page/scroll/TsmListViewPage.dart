@@ -52,41 +52,49 @@ class _TsmListViewPage extends State<TsmListViewPage> {
     if (list_str.length < 100) {
       loadDate();
     }
-    return ListView.separated(
-        itemCount: list_str.length,
-        separatorBuilder: (context, index) => Divider(),
-        itemBuilder: (context, index) {
-          if (list_str[index] == endTag) {
-            return Container(
-              padding: const EdgeInsets.all(16.0),
-              alignment: Alignment.center,
-              child: SizedBox(
-                  width: 24.0,
-                  height: 24.0,
-                  child: CircularProgressIndicator(strokeWidth: 2.0)),
-            );
-          } else {
-            return Container(
-              width: double.infinity,
-              alignment: Alignment.center,
-              padding: const EdgeInsets.all(10),
-              child:inflateText(list_str[index], Colors.blueAccent, 16),
-            );
-          }
+    return RefreshIndicator(
+      onRefresh: () async {
+        setState(() {
+          list_str.clear();
+          loadDate();
         });
+      },
+      child: ListView.separated(
+          itemCount: list_str.length,
+          separatorBuilder: (context, index) => Divider(),
+          itemBuilder: (context, index) {
+            if (list_str[index] == endTag) {
+              return Container(
+                padding: const EdgeInsets.all(16.0),
+                alignment: Alignment.center,
+                child: SizedBox(
+                    width: 24.0,
+                    height: 24.0,
+                    child: CircularProgressIndicator(strokeWidth: 2.0)),
+              );
+            } else {
+              return Container(
+                width: double.infinity,
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(10),
+                child: inflateText(list_str[index], Colors.blueAccent, 16),
+              );
+            }
+          }),
+    );
   }
 
   loadDate() {
     Future.delayed(Duration(seconds: 2)).then((e) {
       setState(() {
         list_str ??= [];
-        if(list_str.length==0){
+        if (list_str.length == 0) {
           list_str.add(endTag);
         }
-        list_str.insertAll(list_str.length-1, page);
+        list_str.insertAll(list_str.length - 1, page);
 
-        if(list_str.length>100){
-          list_str.removeAt(list_str.length-1);
+        if (list_str.length > 100) {
+          list_str.removeAt(list_str.length - 1);
           list_str.add("没有更多条目了");
         }
       });

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app1/utils.dart';
 import 'package:flutter_app1/widget/ViewInflate.dart';
 
 class TsmFlightDynPage extends StatefulWidget {
@@ -8,6 +9,10 @@ class TsmFlightDynPage extends StatefulWidget {
 }
 
 class _TsmFlightDynState extends State<TsmFlightDynPage> {
+
+  final GlobalKey<RefreshIndicatorState> _globalKey=GlobalKey();
+
+
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
@@ -19,100 +24,87 @@ class _TsmFlightDynState extends State<TsmFlightDynPage> {
         child: SizedBox(///让背景填充整个屏幕
           height: double.infinity,
           width: double.infinity,
-          child: Scrollbar(///滑动距离
-            child: Padding(//
-              padding: const EdgeInsets.only(left: 10,right: 10),
-              child: SingleChildScrollView(///嵌套滑动布局
-                physics: BouncingScrollPhysics(),///越界回弹效果
-                child: Column(
-                  children: <Widget>[
-                    SizedBox(
-                      height: 10,
-                    ),
-                    _getFirstWiget(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    _getFirstWiget(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    _getFirstWiget(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    _getFirstWiget(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    _getFirstWiget(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                  ],
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                ),
-              ),
-            ),
-          ),
+          child: _getBody([1,2,3,4,5],_globalKey),
         ),
       ),
   );
-}
 
-_getFirstWiget() => SizedBox(
-      ///先设置圆角背景
-      width: double.infinity,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(6)),
-            color: Colors.white),
-        child: Padding(
-          padding: const EdgeInsets.all(10),
+}
+_getBody(List<int> list,GlobalKey<RefreshIndicatorState> _globalKey) =>Scrollbar(///滑动距离
+  child: Padding(//
+      padding: const EdgeInsets.only(left: 10,right: 10),
+      child: RefreshIndicator(
+        key: _globalKey,
+        onRefresh: ()  async{
+          printString('printString');
+        },
+        child: SingleChildScrollView(///嵌套滑动布局
+          physics: BouncingScrollPhysics(),///越界回弹效果
           child: Column(
-            children: <Widget>[
-              _getFirstChild(14, Colors.black87, '北京首都国际机场 T3', '上海虹桥机场 T1'),
-              SizedBox(
-                height: 10,
-              ),
-              _getFirstChild(12, Colors.black38, '实际起飞', '预计到达'),
-              SizedBox(
-                height: 5,
-              ),
-              _getTimeLine(),
-              SizedBox(
-                height: 5,
-              ),
-              _getFirstChild(
-                  12, Colors.black38, '计划 12-10 20:00', '计划 12-11 01:21'),
-              SizedBox(
-                height: 15,
-              ),
-              _getWeather(),
-              SizedBox(
-                height: 10,
-              ),
-              Divider(),
-              SizedBox(
-                height: 15,
-              ),
-              _getService(),
-              SizedBox(
-                height: 15,
-              ),
-              Divider(),
-              SizedBox(
-                height: 10,
-              ),
-              _getPreFlight(),
-              SizedBox(
-                height: 10,
-              )
-            ],
+            children: list.map((e) =>_getFirstWiget()).toList(),
+            crossAxisAlignment: CrossAxisAlignment.center,
           ),
         ),
+      )
+  ),
+);
+
+Widget _getFirstWiget() => Padding(
+  padding: const EdgeInsets.only(top: 10),
+  child: SizedBox(
+    ///先设置圆角背景
+    width: double.infinity,
+    child: DecoratedBox(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(6)),
+          color: Colors.white),
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          children: <Widget>[
+            _getFirstChild(14, Colors.black87, '北京首都国际机场 T3', '上海虹桥机场 T1'),
+            SizedBox(
+              height: 10,
+            ),
+            _getFirstChild(12, Colors.black38, '实际起飞', '预计到达'),
+            SizedBox(
+              height: 5,
+            ),
+            _getTimeLine(),
+            SizedBox(
+              height: 5,
+            ),
+            _getFirstChild(
+                12, Colors.black38, '计划 12-10 20:00', '计划 12-11 01:21'),
+            SizedBox(
+              height: 15,
+            ),
+            _getWeather(),
+            SizedBox(
+              height: 10,
+            ),
+            Divider(),
+            SizedBox(
+              height: 15,
+            ),
+            _getService(),
+            SizedBox(
+              height: 15,
+            ),
+            Divider(),
+            SizedBox(
+              height: 10,
+            ),
+            _getPreFlight(),
+            SizedBox(
+              height: 10,
+            )
+          ],
+        ),
       ),
-    );
+    ),
+  ),
+);
 
 _getPreFlight() => Row(
       children: <Widget>[
