@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
-import 'file:///D:/User/flutter_app1/lib/tsm_page/scroll/ScrollBasePage.dart';
-import 'file:///D:/User/flutter_app1/lib/tsm_page/layout/TsmContainerPage.dart';
-import 'file:///D:/User/flutter_app1/lib/tsm_page/image/TsmIconPage.dart';
-import 'file:///D:/User/flutter_app1/lib/tsm_page/image/TsmImagePage.dart';
 import 'package:flutter_app1/tsm_page/TsmMainPage.dart';
 import 'package:flutter_app1/tsm_page/check/TsmCheckPage.dart';
+import 'package:flutter_app1/tsm_page/inherited/TsmInheritedSendPage.dart';
 import 'package:flutter_app1/tsm_page/progress_indicator/TsmProgressIndicatorPage.dart';
 import 'package:flutter_app1/tsm_page/scroll/TsmCustomLIstView.dart';
 import 'package:flutter_app1/tsm_page/scroll/TsmGridViewPage.dart';
 import 'package:flutter_app1/tsm_page/scroll/TsmListViewPage.dart';
 import 'package:flutter_app1/tsm_page/tsm_flight_dyn_page.dart';
 import 'package:flutter_app1/tsm_page/wrap/TsmWrapPage.dart';
+import 'package:flutter_app1/tsm_page_routes.dart';
+import 'package:flutter_app1/utils.dart';
+
 import 'file:///D:/User/flutter_app1/lib/tsm_page/button/TsmRaisedButtonPage.dart';
+import 'file:///D:/User/flutter_app1/lib/tsm_page/image/TsmIconPage.dart';
+import 'file:///D:/User/flutter_app1/lib/tsm_page/image/TsmImagePage.dart';
+import 'file:///D:/User/flutter_app1/lib/tsm_page/layout/TsmContainerPage.dart';
 import 'file:///D:/User/flutter_app1/lib/tsm_page/layout/TsmRowAndColumnPage.dart';
-import 'file:///D:/User/flutter_app1/lib/tsm_page/main/TsmScaffoldPage.dart';
 import 'file:///D:/User/flutter_app1/lib/tsm_page/main/TsmAppBarPage.dart';
+import 'file:///D:/User/flutter_app1/lib/tsm_page/main/TsmScaffoldPage.dart';
+import 'file:///D:/User/flutter_app1/lib/tsm_page/scroll/ScrollBasePage.dart';
 import 'file:///D:/User/flutter_app1/lib/tsm_page/scroll/TsmSingleChildScrollViewPage.dart';
 import 'file:///D:/User/flutter_app1/lib/tsm_page/text/TsmTextField.dart';
 import 'file:///D:/User/flutter_app1/lib/tsm_page/text/TsmTextPage.dart';
-import 'package:flutter_app1/tsm_page_routes.dart';
-import 'package:flutter_app1/utils.dart';
 
 void main() {
   runApp(MyApp());
@@ -51,6 +53,7 @@ class MyApp extends StatelessWidget {
       page_routes_progress_indicator: TsmProgressIndicatorPage(),
       page_routes_wrap: TsmWarpPage(),
       page_routes_custom_scroll_view: TsmCustomScrollViewPage(),
+      page_routes_inherited: TsmInheritedSendPage(),
     };
 
     return MaterialApp(
@@ -61,7 +64,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
 
-      ///   经测试这个东西必须    与  routes  中的配置互斥,如果在routes 中配置了,
+      ///   经测试  onGenerateRoute 必须    与  routes  中的配置互斥,如果在routes 中配置了,
       ///   则该回调不起作用,可以利用map 来操作,先把map加载进来,
       ///   同样的原理,不过可以控制跳转
       onGenerateRoute: (settings) {
@@ -69,6 +72,20 @@ class MyApp extends StatelessWidget {
         return MaterialPageRoute(builder: (context) {
           String routeName = settings.name;
           printString(routeName);
+
+          ///实际项目中如果页面需要强制登录的话,这个子页面写很麻烦,
+          ///可以在这里统一处理一下
+          /// 比如
+          ///
+          ///          if (routeName.contains('login')) {
+          ///            if(!UserManager.isUserLogin()){
+          ///              return LoginWidget();
+          ///            }
+          ///          }
+          /// 这里只是打个比方,如果在登录后还需要把目的页打开,只要给LoginWidget
+          /// 增加一个非必要入参route 登录完成后判断一下,费空的话直接打开就好了,
+          ///
+
           if (_route.containsKey(routeName)) {
             return _route[routeName];
           }

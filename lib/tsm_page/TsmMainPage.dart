@@ -51,7 +51,7 @@ class _TsmMainState extends State<TsmMainPage> {
       'Switch Checkbox  学习',
       'ProgressIndicator  学习',
       'Wrap  学习',
-      'Icon  学习',
+      'Inherited  学习',
       'Icon  学习',
       'Icon  学习',
       'Icon  学习',
@@ -199,6 +199,9 @@ class _TsmMainState extends State<TsmMainPage> {
         break;
       case 14:
         Navigator.of(context).pushNamed(page_routes_wrap);
+        break;
+      case 15:
+        Navigator.of(context).pushNamed(page_routes_inherited);
         break;
     }
 

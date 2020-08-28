@@ -65,3 +65,6 @@ const String page_routes_wrap=base_routes+'wrap';
 
 ///CustomLIstView  学习
 const String page_routes_custom_scroll_view=base_routes+'custom_scroll_view';
+
+
+const String page_routes_inherited=base_routes+"inherited";
