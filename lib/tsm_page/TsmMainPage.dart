@@ -25,6 +25,9 @@ class _TsmMainState extends State<TsmMainPage> {
   }
 
   void lis() {
+    setState(() {
+
+    });
     printString(
         'offset:${_controller.offset}     positon:${_controller.position}');
   }
@@ -52,7 +55,7 @@ class _TsmMainState extends State<TsmMainPage> {
       'ProgressIndicator  学习',
       'Wrap  学习',
       'Inherited  学习',
-      'Icon  学习',
+      'Dialog  学习',
       'Icon  学习',
       'Icon  学习',
       'Icon  学习',
@@ -202,6 +205,9 @@ class _TsmMainState extends State<TsmMainPage> {
         break;
       case 15:
         Navigator.of(context).pushNamed(page_routes_inherited);
+        break;
+      case 16:
+        Navigator.of(context).pushNamed(page_routes_dialog);
         break;
     }
 

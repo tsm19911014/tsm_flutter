@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app1/tsm_page/TsmMainPage.dart';
 import 'package:flutter_app1/tsm_page/check/TsmCheckPage.dart';
+import 'package:flutter_app1/tsm_page/dialog/TsmDialogPage.dart';
 import 'package:flutter_app1/tsm_page/inherited/TsmInheritedSendPage.dart';
 import 'package:flutter_app1/tsm_page/progress_indicator/TsmProgressIndicatorPage.dart';
 import 'package:flutter_app1/tsm_page/scroll/TsmCustomLIstView.dart';
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
       page_routes_wrap: TsmWarpPage(),
       page_routes_custom_scroll_view: TsmCustomScrollViewPage(),
       page_routes_inherited: TsmInheritedSendPage(),
+      page_routes_dialog:TsmDialogPage(),
     };
 
     return MaterialApp(
