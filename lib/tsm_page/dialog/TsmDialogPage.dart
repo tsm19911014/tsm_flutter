@@ -102,19 +102,27 @@ class TsmDialogPage extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 1,
-                  child: FlatButton(child: Text('取消'),
-                  onPressed: (){
-                    Navigator.of(context).pop();
-                  },),
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.of(context).pop();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(19),
+                      child: Text('取消'),
+                    ),
+                  )
                 ),
-
-
                 Expanded(
-                  flex: 1,
-                  child: FlatButton(child: Text('确定',textDirection: TextDirection.rtl),
-                    onPressed: (){
-                      Navigator.of(context).pop(dateTime);
-                    },),
+                    flex: 1,
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.of(context).pop(dateTime);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Text('确定',textDirection: TextDirection.rtl),
+                      ),
+                    )
                 ),
               ],
             ),
