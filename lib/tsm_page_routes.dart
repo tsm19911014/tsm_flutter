@@ -71,3 +71,7 @@ const String page_routes_inherited=base_routes+"inherited";
 
 ///Dialog 学习
 const String page_routes_dialog=base_routes+'dialog';
+
+
+///原始指针 学习
+const String page_routes_listener=base_routes+'listener';
