@@ -6,8 +6,6 @@ import 'package:flutter_app1/tsm_page/inherited/provider/ChangeNotifyProvider.da
 import 'package:flutter_app1/tsm_page/inherited/provider/Consumer.dart';
 import 'package:flutter_app1/utils.dart';
 
-import 'TsmInheritedWidget.dart';
-
 class TsmInheritedSendPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _TsmInheritedSendPageState();
