@@ -89,58 +89,56 @@ class TsmDialogPage extends StatelessWidget {
     );
   }
 
-  void selectDate(BuildContext context) async{
+  void selectDate(BuildContext context) async {
+    DateTime dateTime = DateTime.now();
 
-    DateTime dateTime=DateTime.now();
-
-   var date=await showModalBottomSheet<DateTime>(
-        context: context,
-        builder: (context) => Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Row(
-              children: [
-                Expanded(
+    var date = await showModalBottomSheet<DateTime>(
+      context: context,
+      builder: (context) => Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            children: [
+              Expanded(
                   flex: 1,
                   child: GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       Navigator.of(context).pop();
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(19),
                       child: Text('取消'),
                     ),
-                  )
-                ),
-                Expanded(
-                    flex: 1,
-                    child: GestureDetector(
-                      onTap: (){
-                        Navigator.of(context).pop(dateTime);
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Text('确定',textDirection: TextDirection.rtl),
-                      ),
-                    )
-                ),
-              ],
+                  )),
+              Expanded(
+                  flex: 1,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pop(dateTime);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Text('确定', textDirection: TextDirection.rtl),
+                    ),
+                  )),
+            ],
+          ),
+          SizedBox(
+            height: 200,
+            child: CupertinoDatePicker(
+              onDateTimeChanged: (date) {
+                dateTime = date;
+              },
+              mode: CupertinoDatePickerMode.date,
+              maximumDate: DateTime.now().add(Duration(days: 20)),
+              minimumDate: DateTime.now().add(Duration(days: -20)),
             ),
-            SizedBox(
-              height: 200,
-              child: CupertinoDatePicker(
-                onDateTimeChanged: (date) {
-                  dateTime=date;
-                },
-                mode: CupertinoDatePickerMode.date,
-                maximumDate: DateTime.now().add(Duration(days: 20)),
-                minimumDate: DateTime.now().add(Duration(days: -20)),
-              ),
-            )
-          ],
-        ),);
+          )
+        ],
+      ),
+    );
 
-   printString('date:${date??''}');
+    printString('date:${date ?? ''}');
   }
 }
 
@@ -174,27 +172,71 @@ Future<int> _getAlertDialog(BuildContext context) {
   return showDialog<int>(
       context: context,
       builder: (context) => AlertDialog(
-            title: Text('Title'),
+//            title: Container(
+//              alignment: Alignment.center,
+//              child: Text('Title'),
+//            ),
+            contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(12))),
 
-            ///如果内容过长,需要使用SingleChildScrollView
-            content: Scrollbar(
-              child: SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
-                child: Text(
-                    "这个是内容...这个是内容...这个是内容...这个是内容...这个是内容...这个是内容...这个是内容...这个是内容..." *
-                        20),
+            ///如果内容过长,需要使用 SingleChildScrollView
+            content: SizedBox(
+              height: 180,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 120,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 30, 20, 10),
+                      child: Scrollbar(
+                        child: SingleChildScrollView(
+                          physics: BouncingScrollPhysics(),
+                          child:  Text(
+                              "这个是内容...这个是内容...这个是内容...这个是内容...这个是内容...这个是内容...这个是内容...这个是内容..." *
+                                  20),
+                        ),
+                      ),
+                    )
+                  ),
+                  Divider(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: FlatButton(
+                          child: Text(
+                            '取消',
+                            style:
+                                TextStyle(color: Colors.black87, fontSize: 18),
+                          ),
+                          onPressed: () => Navigator.of(context).pop(0),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 30,
+                        child:VerticalDivider(
+                          width:10,
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: FlatButton(
+                          child: Text(
+                            '确定',
+                            style: TextStyle(
+                                color: Colors.blueAccent, fontSize: 18),
+                          ),
+                          onPressed: () => Navigator.of(context).pop(1),
+                        ),
+                      )
+                    ],
+                  ),
+                ],
               ),
             ),
-            actions: [
-              FlatButton(
-                child: Text('取消'),
-                onPressed: () => Navigator.of(context).pop(0),
-              ),
-              FlatButton(
-                child: Text('确定'),
-                onPressed: () => Navigator.of(context).pop(1),
-              )
-            ],
           ),
 
       ///点击dialog 外部是否消失
