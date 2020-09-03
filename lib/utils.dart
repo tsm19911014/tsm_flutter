@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 ///受到保护的方法
 void printString(dynamic string){
   if(string!=null){
-    print('msg =${string?.toString()}');
+    print('tian.shm =${string?.toString()}');
   }
 }
 
