@@ -15,8 +15,12 @@ class _TsmListenerState extends State<TsmListenerPgae> {
   double _left = 0;
   double _top = 0;
 
+  String _tag;
 
-  var tap=TapGestureRecognizer();
+  var tap = TapGestureRecognizer();
+
+
+  GlobalKey key=GlobalKey();
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -53,8 +57,30 @@ class _TsmListenerState extends State<TsmListenerPgae> {
               child: Text(_event?.toString() ?? ""),
             ),
           ),
-          SizedBox(
-            height: 20,
+          GestureDetector(
+            child: Container(
+              height: 100,
+              width: double.infinity,
+              color: Colors.greenAccent,
+              child: Center(
+                child: Text(_tag ??= '',style: TextStyle(color: Colors.black87),),
+              ),
+            ),
+            onTap: () {
+              setState(() {
+                _tag = "单击";
+              });
+            },
+            onDoubleTap: () {
+              setState(() {
+                _tag = "双击";
+              });
+            },
+            onLongPress: () {
+              setState(() {
+                _tag = "长按";
+              });
+            },
           ),
           Container(
             height: 200,
@@ -66,12 +92,27 @@ class _TsmListenerState extends State<TsmListenerPgae> {
                   top: _top,
                   child: GestureDetector(
                     child: CircleAvatar(
+                      key: key,
                       child: Text('A'),
                     ),
                     onPanUpdate: (event) {
                       setState(() {
                         _left += event.delta.dx;
+                        if(_left<0){
+                          _left=0;
+                        }
+                        var width=getAppWidth(context);
+                        var wiget_width=getWidgetWidthAndHeight(key)[0];
+                        if(_left>width-wiget_width){
+                          _left=width-wiget_width;
+                        }
                         _top += event.delta.dy;
+                        if(_top<0){
+                          _top=0;
+                        }
+                        if(_top>200-wiget_width){
+                          _top=200-wiget_width;
+                        }
                       });
                     },
                   ),
