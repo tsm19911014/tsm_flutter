@@ -213,8 +213,8 @@ class _TsmMainState extends State<TsmMainPage> {
       case 17:
         Navigator.of(context).pushNamed(page_routes_listener);
         break;
-      case 18:
-        Navigator.of(context).pushNamed(page_routes_anim);
+      case 18: Navigator.of(context).pushNamed(page_routes_main_anim);
+
         break;
     }
 

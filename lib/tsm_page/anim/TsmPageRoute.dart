@@ -4,7 +4,9 @@
 import 'package:flutter/cupertino.dart';
 
 /**
- *   有用的属性
+ *
+ * 重写打开页面的动画
+ *   Route有用的属性
  *   isActive
  *   isFirst
  *   isCurrent

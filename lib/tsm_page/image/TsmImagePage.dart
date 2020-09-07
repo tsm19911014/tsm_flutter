@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../anim/HeroForwardPage.dart';
+
 class TsmImagePage extends StatefulWidget {
 
 
@@ -40,22 +42,38 @@ class _TsmImagePageState extends State<TsmImagePage> {
           child: ListView(
             children: <Widget>[
               new Text('资源图片：'),
-              new Row(
+              new Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  new Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Image.asset(
-                      'images/bg_baby_handbook_en.png',
-                      width: 100,
+                  GestureDetector(
+                    child: Hero(
+                      tag: 'tsm_tag',
+                      child: new Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Image.asset(
+                          'images/bg_baby_handbook_en.png',
+                          width: 100,
+                        ),
+                      ),
                     ),
+                    onTap: (){
+                      Navigator.push(context, PageRouteBuilder(
+                          pageBuilder: (BuildContext context, Animation animation,
+                              Animation secondaryAnimation) {
+                            return new FadeTransition(
+                              opacity: animation,
+                              child:  HeroForwardPage(),
+                            );
+                          })
+                      );
+                    },
                   ),
-//              new Image.file(
-//                File('/storage/emulated/0/Download/test.jpg'),
-//                width: 120,
-//                //fill(全图显示且填充满，图片可能会拉伸)，contain（全图显示但不充满，显示原比例），cover（显示可能拉伸，也可能裁剪，充满）
-//                //fitWidth（显示可能拉伸，可能裁剪，宽度充满），fitHeight显示可能拉伸，可能裁剪，高度充满），scaleDown（效果和contain差不多，但是）
-//              ),
+                  Center(
+                    child: Text('点我查看原图',style: TextStyle(color: Colors.black87),),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  )
                 ],
               ),
               new Text('网络占位图片FadeInImage：'),

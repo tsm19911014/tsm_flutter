@@ -78,4 +78,5 @@ const String page_routes_listener=base_routes+'listener';
 
 
 ///Anim 学习
+const String page_routes_main_anim=base_routes+'main_anim';
 const String page_routes_anim=base_routes+'anim';
