@@ -75,3 +75,7 @@ const String page_routes_dialog=base_routes+'dialog';
 
 ///原始指针 学习
 const String page_routes_listener=base_routes+'listener';
+
+
+///Anim 学习
+const String page_routes_anim=base_routes+'anim';

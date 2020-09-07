@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app1/tsm_page/TsmMainPage.dart';
+import 'package:flutter_app1/tsm_page/anim/TsmAnimationPage.dart';
 import 'package:flutter_app1/tsm_page/check/TsmCheckPage.dart';
 import 'package:flutter_app1/tsm_page/dialog/TsmDialogPage.dart';
 import 'package:flutter_app1/tsm_page/inherited/TsmInheritedSendPage.dart';
@@ -58,6 +59,7 @@ class MyApp extends StatelessWidget {
       page_routes_inherited: TsmInheritedSendPage(),
       page_routes_dialog:TsmDialogPage(),
       page_routes_listener:TsmListenerPgae(),
+      page_routes_anim :TsmAnimationPage(),
     };
 
     return MaterialApp(
