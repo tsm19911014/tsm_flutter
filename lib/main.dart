@@ -15,7 +15,6 @@ import 'package:flutter_app1/tsm_page/tsm_flight_dyn_page.dart';
 import 'package:flutter_app1/tsm_page/wrap/TsmWrapPage.dart';
 import 'package:flutter_app1/tsm_page_routes.dart';
 import 'package:flutter_app1/utils.dart';
-
 import 'file:///D:/User/flutter_app1/lib/tsm_page/button/TsmRaisedButtonPage.dart';
 import 'file:///D:/User/flutter_app1/lib/tsm_page/image/TsmIconPage.dart';
 import 'file:///D:/User/flutter_app1/lib/tsm_page/image/TsmImagePage.dart';
@@ -30,6 +29,7 @@ import 'file:///D:/User/flutter_app1/lib/tsm_page/text/TsmTextPage.dart';
 
 void main() {
   runApp(MyApp());
+  closeStatusBarShadow();
 }
 /**
  *   可以看我的简书同步再看代码
