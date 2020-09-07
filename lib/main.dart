@@ -71,6 +71,8 @@ class MyApp extends StatelessWidget {
 //      initialRoute: page_routes_row_and_column,   ///设置了这个属性结果 home: 这个属性就失去意义了, initialRoute所指向的节点变为首页了
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        ///  这里可以修改全局appbar 字体颜色
+        appBarTheme: AppBarTheme(brightness: Brightness.light),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
 
