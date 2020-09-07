@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app1/tsm_page/TsmMainPage.dart';
+import 'package:flutter_app1/tsm_page/TsmPageRoute.dart';
 import 'package:flutter_app1/tsm_page/anim/TsmAnimationPage.dart';
 import 'package:flutter_app1/tsm_page/check/TsmCheckPage.dart';
 import 'package:flutter_app1/tsm_page/dialog/TsmDialogPage.dart';
@@ -57,9 +58,9 @@ class MyApp extends StatelessWidget {
       page_routes_wrap: TsmWarpPage(),
       page_routes_custom_scroll_view: TsmCustomScrollViewPage(),
       page_routes_inherited: TsmInheritedSendPage(),
-      page_routes_dialog:TsmDialogPage(),
-      page_routes_listener:TsmListenerPgae(),
-      page_routes_anim :TsmAnimationPage(),
+      page_routes_dialog: TsmDialogPage(),
+      page_routes_listener: TsmListenerPgae(),
+      page_routes_anim: TsmAnimationPage(),
     };
 
     return MaterialApp(
@@ -74,24 +75,22 @@ class MyApp extends StatelessWidget {
       ///   则该回调不起作用,可以利用map 来操作,先把map加载进来,
       ///   同样的原理,不过可以控制跳转
       onGenerateRoute: (settings) {
-        printString('onGenerateRoute');
-        return MaterialPageRoute(builder: (context) {
-          String routeName = settings.name;
-          printString(routeName);
+        String routeName = settings.name;
+        printString(routeName);
 
-          ///实际项目中如果页面需要强制登录的话,这个子页面写很麻烦,
-          ///可以在这里统一处理一下
-          /// 比如
-          ///
-          ///          if (routeName.contains('login')) {
-          ///            if(!UserManager.isUserLogin()){
-          ///              return LoginWidget();
-          ///            }
-          ///          }
-          /// 这里只是打个比方,如果在登录后还需要把目的页打开,只要给LoginWidget
-          /// 增加一个非必要入参route 登录完成后判断一下,费空的话直接打开就好了,
-          ///
-
+        ///实际项目中如果页面需要强制登录的话,这个子页面写很麻烦,
+        ///可以在这里统一处理一下
+        /// 比如
+        ///
+        ///          if (routeName.contains('login')) {
+        ///            if(!UserManager.isUserLogin()){
+        ///              return LoginWidget();
+        ///            }
+        ///          }
+        /// 这里只是打个比方,如果在登录后还需要把目的页打开,只要给LoginWidget
+        /// 增加一个非必要入参route 登录完成后判断一下,费空的话直接打开就好了,
+        ///
+        return TsmRoute(builder: (context) {
           if (_route.containsKey(routeName)) {
             return _route[routeName];
           }
