@@ -11,10 +11,10 @@ class Consumer<T extends ChangeNotifier>  extends StatelessWidget{
   Consumer({@required this.builder,this.data});
 
 
-  T data;
+  final T data;
 
 
-  Widget Function(BuildContext buildContext,T  data) builder;
+  final  Widget Function(BuildContext buildContext,T  data) builder;
 
 
   @override

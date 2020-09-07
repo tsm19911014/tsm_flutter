@@ -7,8 +7,8 @@ import 'Consumer.dart';
 
 class ChangeNotifyProvider<T extends ChangeNotifier> extends StatefulWidget{
 
-  T data;
-  Widget child;
+  final T data;
+  final Widget child;
 
   ChangeNotifyProvider({Key key,this.child,@required this.data});
 

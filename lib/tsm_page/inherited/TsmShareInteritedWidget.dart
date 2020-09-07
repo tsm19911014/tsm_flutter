@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 
+// ignore: must_be_immutable
 class TsmShareInteritedWidget extends InheritedWidget {
 
 
   TsmShareInteritedWidget({@required this.data, Widget child}) : super(child: child);
 
-  int data;
+  final int data;
 
   @override
   bool updateShouldNotify(TsmShareInteritedWidget oldWidget) {

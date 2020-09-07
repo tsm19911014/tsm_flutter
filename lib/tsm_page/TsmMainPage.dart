@@ -6,7 +6,6 @@ import 'package:flutter_app1/widget/ViewInflate.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../tsm_page_routes.dart';
-import 'main/TsmAppBarPage.dart';
 import 'main/TsmScaffoldPage.dart';
 
 class TsmMainPage extends StatefulWidget {

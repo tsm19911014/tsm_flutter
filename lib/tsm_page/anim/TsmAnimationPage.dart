@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/scheduler/ticker.dart';
 import 'package:flutter_app1/utils.dart';
 
 class TsmAnimationPage extends StatefulWidget {
@@ -42,6 +41,7 @@ class _TsmAnimationState extends State<TsmAnimationPage>
       }
     });
     animatedContainer.forward();
+    super.initState();
   }
 
   @override
