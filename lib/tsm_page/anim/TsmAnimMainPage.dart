@@ -11,6 +11,7 @@ class TsmAnimMainPage extends StatelessWidget {
       '普通动画',
       'Hero 动画',
       '交织动画',
+      'AnimatedSwitcher 学习'
     ];
 
     return Scaffold(
@@ -56,6 +57,9 @@ openPage(BuildContext context,int index){
       break;
     case 2:
       Navigator.of(context).pushNamed(page_routes_stagger_route);
+      break;
+    case 3:
+      Navigator.of(context).pushNamed(page_routes_animated_switcher);
       break;
   }
 }

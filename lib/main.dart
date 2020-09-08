@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app1/tsm_page/TsmMainPage.dart';
 import 'package:flutter_app1/tsm_page/anim/TsmAnimMainPage.dart';
+import 'package:flutter_app1/tsm_page/anim/TsmAnimatedSwitcherPage.dart';
 import 'file:///D:/User/flutter_app1/lib/tsm_page/anim/TsmPageRoute.dart';
 import 'package:flutter_app1/tsm_page/anim/TsmAnimationPage.dart';
 import 'package:flutter_app1/tsm_page/anim/TsmStaggerAnimationPage.dart';
@@ -65,7 +66,7 @@ class MyApp extends StatelessWidget {
       page_routes_anim: TsmAnimationPage(),
       page_routes_main_anim: TsmAnimMainPage(),
       page_routes_stagger_route:StaggerRoute(),
-
+      page_routes_animated_switcher:TsmAnimatedSwitcherPage(),
     };
 
     return MaterialApp(

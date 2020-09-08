@@ -37,7 +37,7 @@ class _TsmCustomScrollViewState extends State<TsmCustomScrollViewPage> {
                 child: AnimatedOpacity(
                     duration: Duration(milliseconds: 300),
                     //opacity: top == 80.0 ? 1.0 : 0.0,
-                    opacity: 1.0,
+                    opacity: buildRefreshindictor==RefreshIndicatorMode.done||buildRefreshindictor==RefreshIndicatorMode.refresh?1.0:0,
                     child: Text(
                       RefreshIndicatorMode.done == buildRefreshindictor
                           ? '已拉动:${pulledExtent.round()}  松开刷新'
