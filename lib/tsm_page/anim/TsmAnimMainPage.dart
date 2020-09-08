@@ -55,7 +55,7 @@ openPage(BuildContext context,int index){
         });
       break;
     case 2:
-
+      Navigator.of(context).pushNamed(page_routes_stagger_route);
       break;
   }
 }

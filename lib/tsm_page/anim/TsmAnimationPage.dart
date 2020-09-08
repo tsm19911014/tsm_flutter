@@ -60,7 +60,7 @@ class _TsmAnimationState extends State<TsmAnimationPage>
       body: Container(
         child: Center(
           child: Text(
-            "这个是动画",
+            "上面图片Hero动画",
             style: TextStyle(
               color: Color.fromARGB(animation.value, 1, 1, 1),
             ),
