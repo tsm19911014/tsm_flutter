@@ -75,7 +75,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         ///  这里可以修改全局appbar 字体颜色
-        appBarTheme: AppBarTheme(brightness: Brightness.light),
+        appBarTheme: AppBarTheme(brightness: Brightness.dark),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
 

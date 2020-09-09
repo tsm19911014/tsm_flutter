@@ -12,7 +12,7 @@ class ChangeColorButton extends StatefulWidget{
   final Color begin;
   final Color end;
 
-  ChangeColorButton({@required this.child,this.duration=const Duration(seconds:1)  , this. begin=Colors.black87  ,this.end=Colors.black87});
+  ChangeColorButton({@required this.child,this.duration=const Duration(seconds:5)  , this. begin=Colors.black87  ,this.end=Colors.black87});
 
 
 
@@ -27,12 +27,14 @@ class _ChangeColorButtonState extends State<ChangeColorButton> with TickerProvid
 
 
   AnimationController _controller;
+  ColorTween tween;
   Animation<Color> anim;
   @override
   void initState() {
     super.initState();
     _controller=AnimationController(duration: widget.duration,vsync: this);
-    anim=ColorTween(begin: widget.begin,end: widget.end).animate(CurvedAnimation(parent: _controller,curve: Curves.easeOut)) ;
+    tween=ColorTween(begin: widget.begin,end: widget.end) ;
+    anim=tween.animate(CurvedAnimation(parent: _controller,curve: Curves.easeOut));
   }
 
 
@@ -50,7 +52,8 @@ class _ChangeColorButtonState extends State<ChangeColorButton> with TickerProvid
     super.didUpdateWidget(oldWidget);
     controller.duration=widget.duration;
     if(widget.end!=widget.begin){
-      anim=ColorTween(begin: oldWidget.end,end: widget.end).animate(CurvedAnimation(parent: _controller,curve: Curves.easeOut)) ;
+      tween=ColorTween(begin: tween.transform(_controller.value),end: widget.end);
+      anim=tween.animate(CurvedAnimation(parent: _controller,curve: Curves.easeOut));
       _controller..value=0..forward();
     }
   }

@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app1/tsm_page/anim/TsmColorAnimatedDecorated.dart';
 import 'package:flutter_app1/utils.dart';
 
 class TsmCustomScrollViewPage extends StatefulWidget {
@@ -28,29 +29,34 @@ class _TsmCustomScrollViewState extends State<TsmCustomScrollViewPage> {
             /// 自定义布局
             builder: (context, buildRefreshindictor, pulledExtent,
                 refreshTriggerPullDistance, refreshIndicatorExtent) {
-              printString(
-                  'pulledExtent : ${pulledExtent}   ,refreshTriggerPullDistance  : ${refreshTriggerPullDistance}    refreshIndicatorExtent:${refreshIndicatorExtent}');
-              return Container(
-                color: Colors.redAccent,
-                height: 150,
-                alignment: Alignment.center,
-                child: AnimatedOpacity(
-                    duration: Duration(milliseconds: 300),
-                    //opacity: top == 80.0 ? 1.0 : 0.0,
-                    opacity: buildRefreshindictor==RefreshIndicatorMode.done||buildRefreshindictor==RefreshIndicatorMode.refresh?1.0:0,
-                    child: Text(
-                      RefreshIndicatorMode.done == buildRefreshindictor
-                          ? '已拉动:${pulledExtent.round()}  松开刷新'
-                          : '已拉动:${pulledExtent.round()}  下拉刷新',
-                      style: TextStyle(fontSize: 12.0),
-                    )),
+              double opacitye=pulledExtent.round()/200;
+              if(opacitye>1){
+                opacitye=1;
+              };
+              ColorTween tween=ColorTween(begin: Colors.green,end: Colors.redAccent);
+              return TsmColorAnimatedDecorated(
+                duration: Duration(milliseconds: 200),
+                decoration: BoxDecoration(
+                  color: tween.transform(opacitye),
+                ),
+                child: Container(
+                  alignment: Alignment.center,
+                  child: AnimatedOpacity(
+                      duration: Duration(milliseconds: 300,),
+                      //opacity: top == 80.0 ? 1.0 : 0.0,
+                      opacity: getOpacity(buildRefreshindictor,pulledExtent.round()),
+                      child: Text(
+                        getRefulshText(buildRefreshindictor,pulledExtent.round()),
+                        style: TextStyle(fontSize: 12.0),
+                      )),
+                ),
               );
             },
 
             ///触发刷新回调
             onRefresh: () async {
               await Future.delayed(Duration(seconds: 3));
-              printString('CupertinoSliverRefreshControl   onRefresh');
+//              printString('CupertinoSliverRefreshControl   onRefresh');
             },
           ),
 
@@ -139,7 +145,40 @@ class _TsmCustomScrollViewState extends State<TsmCustomScrollViewPage> {
       ),
     );
   }
+
+  String getRefulshText (RefreshIndicatorMode buildRefreshindictor,int round) {
+    switch(buildRefreshindictor){
+      case RefreshIndicatorMode.done:
+        return '完成刷新';
+      case RefreshIndicatorMode.armed:
+        return '已拉动:${round}  松开刷新';
+      case RefreshIndicatorMode.drag:
+        return '已拉动:${round}  下拉刷新';
+      case RefreshIndicatorMode.refresh:
+        return '正在刷新';
+    }
+    return '已拉动:${round} ';
+  }
 }
+
+
+double getOpacity(RefreshIndicatorMode buildRefreshindictor, int round){
+  printString(buildRefreshindictor);
+  if(buildRefreshindictor==RefreshIndicatorMode.done||buildRefreshindictor==RefreshIndicatorMode.refresh||buildRefreshindictor==RefreshIndicatorMode.armed){
+    return 1;
+  }
+  if(buildRefreshindictor==RefreshIndicatorMode.drag){
+    double value=round/60;
+    if(value>1){
+      value=1;
+    }
+    printString(value);
+    return value;
+  }
+  return 0;
+}
+
+
 
 class _SliverPersistenHeaderDelegate extends SliverPersistentHeaderDelegate {
   double maxHeight;

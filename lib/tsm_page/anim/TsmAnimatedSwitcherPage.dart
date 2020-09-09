@@ -69,7 +69,7 @@ class _TsmAnimatedSwitcherState extends  State<TsmAnimatedSwitcherPage>{
               child: FlatButton(
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
-                child: Text('复杂动画'),
+                child: Text('自己封装颜色改变动画'),
                 onPressed: (){
                   setState(() {
                     endColor=Color.fromARGB(255, Random().nextInt(255), Random().nextInt(255), Random().nextInt(255));
