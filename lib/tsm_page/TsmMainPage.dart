@@ -58,7 +58,7 @@ class _TsmMainState extends State<TsmMainPage> {
       'Dialog  学习',
       'Listener触摸事件  学习',
       'Animation  学习',
-      'Icon  学习',
+      '自定义绘制  学习',
       'Icon  学习',
       'Icon  学习',
       'Icon  学习',
@@ -212,8 +212,11 @@ class _TsmMainState extends State<TsmMainPage> {
       case 17:
         Navigator.of(context).pushNamed(page_routes_listener);
         break;
-      case 18: Navigator.of(context).pushNamed(page_routes_main_anim);
-
+      case 18:
+        Navigator.of(context).pushNamed(page_routes_main_anim);
+        break;
+      case 19:
+        Navigator.of(context).pushNamed(page_routes_draw);
         break;
     }
 

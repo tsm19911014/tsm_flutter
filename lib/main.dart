@@ -9,6 +9,7 @@ import 'package:flutter_app1/tsm_page/check/TsmCheckPage.dart';
 import 'package:flutter_app1/tsm_page/dialog/TsmDialogPage.dart';
 import 'package:flutter_app1/tsm_page/inherited/TsmInheritedSendPage.dart';
 import 'package:flutter_app1/tsm_page/listener/TsmListenerPage.dart';
+import 'package:flutter_app1/tsm_page/paint/TsmDrawPage.dart';
 import 'package:flutter_app1/tsm_page/progress_indicator/TsmProgressIndicatorPage.dart';
 import 'package:flutter_app1/tsm_page/scroll/TsmCustomLIstView.dart';
 import 'package:flutter_app1/tsm_page/scroll/TsmGridViewPage.dart';
@@ -67,6 +68,7 @@ class MyApp extends StatelessWidget {
       page_routes_main_anim: TsmAnimMainPage(),
       page_routes_stagger_route:StaggerRoute(),
       page_routes_animated_switcher:TsmAnimatedSwitcherPage(),
+      page_routes_draw:TsmDrawPage(),
     };
 
     return MaterialApp(

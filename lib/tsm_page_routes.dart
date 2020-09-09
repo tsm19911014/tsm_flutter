@@ -83,3 +83,4 @@ const String page_routes_anim=base_routes+'anim';
 const String page_routes_stagger_route=base_routes+'stagger_route';
 const String page_routes_animated_switcher=base_routes+'animated_switcher';
 
+const String page_routes_draw=base_routes+'draw';
