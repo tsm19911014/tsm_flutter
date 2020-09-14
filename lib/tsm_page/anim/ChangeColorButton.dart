@@ -53,7 +53,9 @@ class _ChangeColorButtonState extends State<ChangeColorButton> with TickerProvid
     if(widget.end!=widget.begin){
       tween=ColorTween(begin: tween.transform(_controller.value),end: widget.end);
       anim=tween.animate(CurvedAnimation(parent: _controller,curve: Curves.easeOut));
-      _controller..value=0..forward();
+      _controller
+        ..value=0
+        ..forward();
     }
   }
 

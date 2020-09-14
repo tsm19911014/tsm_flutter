@@ -22,10 +22,11 @@ class _TsmAnimationState extends State<TsmAnimationPage>
 
     ///改变起始值
     Animation curve =
-        CurvedAnimation(parent: animatedContainer, curve: Curves.easeIn);
+        CurvedAnimation(parent: animatedContainer, curve: Curves.easeIn,);
 
     ///添加变速模型
     animation = IntTween(begin: 0, end: 255).animate(curve);
+
 
     ///改变起始值
     animatedContainer.addListener(() {
