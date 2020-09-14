@@ -29,11 +29,13 @@ class _TsmCustomScrollViewState extends State<TsmCustomScrollViewPage> {
             /// 自定义布局
             builder: (context, buildRefreshindictor, pulledExtent,
                 refreshTriggerPullDistance, refreshIndicatorExtent) {
-              double opacitye=pulledExtent.round()/200;
-              if(opacitye>1){
-                opacitye=1;
-              };
-              ColorTween tween=ColorTween(begin: Colors.green,end: Colors.redAccent);
+              double opacitye = pulledExtent.round() / 200;
+              if (opacitye > 1) {
+                opacitye = 1;
+              }
+              ;
+              ColorTween tween =
+                  ColorTween(begin: Colors.green, end: Colors.redAccent);
               return TsmColorAnimatedDecorated(
                 duration: Duration(milliseconds: 200),
                 decoration: BoxDecoration(
@@ -42,11 +44,15 @@ class _TsmCustomScrollViewState extends State<TsmCustomScrollViewPage> {
                 child: Container(
                   alignment: Alignment.center,
                   child: AnimatedOpacity(
-                      duration: Duration(milliseconds: 300,),
+                      duration: Duration(
+                        milliseconds: 300,
+                      ),
                       //opacity: top == 80.0 ? 1.0 : 0.0,
-                      opacity: getOpacity(buildRefreshindictor,pulledExtent.round()),
+                      opacity: getOpacity(
+                          buildRefreshindictor, pulledExtent.round()),
                       child: Text(
-                        getRefulshText(buildRefreshindictor,pulledExtent.round()),
+                        getRefulshText(
+                            buildRefreshindictor, pulledExtent.round()),
                         style: TextStyle(fontSize: 12.0),
                       )),
                 ),
@@ -77,7 +83,9 @@ class _TsmCustomScrollViewState extends State<TsmCustomScrollViewPage> {
             ///pinned(固定的)  控制隐藏和展示的   false 就是可以随列表滑出屏幕外  true 不可以
             pinned: true,
             backgroundColor: Colors.blueAccent,
-            expandedHeight: 200,///展开后的高度
+            expandedHeight: 200,
+
+            ///展开后的高度
             flexibleSpace: LayoutBuilder(
               builder: (context, cons) {
                 return FlexibleSpaceBar(
@@ -146,8 +154,8 @@ class _TsmCustomScrollViewState extends State<TsmCustomScrollViewPage> {
     );
   }
 
-  String getRefulshText (RefreshIndicatorMode buildRefreshindictor,int round) {
-    switch(buildRefreshindictor){
+  String getRefulshText(RefreshIndicatorMode buildRefreshindictor, int round) {
+    switch (buildRefreshindictor) {
       case RefreshIndicatorMode.done:
         return '完成刷新';
       case RefreshIndicatorMode.armed:
@@ -156,29 +164,29 @@ class _TsmCustomScrollViewState extends State<TsmCustomScrollViewPage> {
         return '已拉动:${round}  下拉刷新';
       case RefreshIndicatorMode.refresh:
         return '正在刷新';
+      default:
+        return '已拉动:${round} ';
     }
-    return '已拉动:${round} ';
   }
 }
 
-
-double getOpacity(RefreshIndicatorMode buildRefreshindictor, int round){
+double getOpacity(RefreshIndicatorMode buildRefreshindictor, int round) {
   printString(buildRefreshindictor);
-  if(buildRefreshindictor==RefreshIndicatorMode.done||buildRefreshindictor==RefreshIndicatorMode.refresh||buildRefreshindictor==RefreshIndicatorMode.armed){
+  if (buildRefreshindictor == RefreshIndicatorMode.done ||
+      buildRefreshindictor == RefreshIndicatorMode.refresh ||
+      buildRefreshindictor == RefreshIndicatorMode.armed) {
     return 1;
   }
-  if(buildRefreshindictor==RefreshIndicatorMode.drag){
-    double value=round/60;
-    if(value>1){
-      value=1;
+  if (buildRefreshindictor == RefreshIndicatorMode.drag) {
+    double value = round / 60;
+    if (value > 1) {
+      value = 1;
     }
     printString(value);
     return value;
   }
   return 0;
 }
-
-
 
 class _SliverPersistenHeaderDelegate extends SliverPersistentHeaderDelegate {
   double maxHeight;

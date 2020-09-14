@@ -76,11 +76,20 @@ const String page_routes_dialog=base_routes+'dialog';
 ///原始指针 学习
 const String page_routes_listener=base_routes+'listener';
 
+/// 手指冲突
+const String page_routes_gesture_conflict=base_routes+"gesture_conflict";
 
-///Anim 学习
+///Anim列表 学习
 const String page_routes_main_anim=base_routes+'main_anim';
+///Anim 学习
 const String page_routes_anim=base_routes+'anim';
+///
 const String page_routes_stagger_route=base_routes+'stagger_route';
-const String page_routes_animated_switcher=base_routes+'animated_switcher';
 
+/// 切换动画
+const String page_routes_animated_switcher=base_routes+'animated_switcher';
+///  painter 绘制
 const String page_routes_draw=base_routes+'draw';
+
+
+
