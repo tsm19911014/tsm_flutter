@@ -86,6 +86,8 @@ const String page_routes_anim=base_routes+'anim';
 ///
 const String page_routes_stagger_route=base_routes+'stagger_route';
 
+const String page_routes_animated_builder=base_routes+'animated_builder';
+
 /// 切换动画
 const String page_routes_animated_switcher=base_routes+'animated_switcher';
 ///  painter 绘制

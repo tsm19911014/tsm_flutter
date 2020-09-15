@@ -9,6 +9,7 @@ class TsmAnimMainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> list = [
       '普通动画',
+      'AnimatedBuilder 学习',
       'Hero 动画',
       '交织动画',
       'AnimatedSwitcher 学习',
@@ -47,6 +48,9 @@ openPage(BuildContext context,int index){
       Navigator.of(context).pushNamed(page_routes_anim);
       break;
     case 1:
+      Navigator.of(context).pushNamed(page_routes_animated_builder);
+      break;
+    case 2:
       [Permission.storage, Permission.camera].request()
         ..then((value) {
           if (value[Permission.storage].isGranted) {
@@ -56,13 +60,13 @@ openPage(BuildContext context,int index){
           }
         });
       break;
-    case 2:
+    case 3:
       Navigator.of(context).pushNamed(page_routes_stagger_route);
       break;
-    case 3:
+    case 4:
       Navigator.of(context).pushNamed(page_routes_animated_switcher);
       break;
-    case 4:
+    case 5:
       Navigator.of(context).pushNamed(page_routes_custom_scroll_view);
       break;
   }

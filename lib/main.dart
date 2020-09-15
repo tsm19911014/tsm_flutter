@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app1/tsm_page/TsmMainPage.dart';
 import 'package:flutter_app1/tsm_page/anim/TsmAnimMainPage.dart';
+import 'package:flutter_app1/tsm_page/anim/TsmAnimatedBuilderPage.dart';
 import 'package:flutter_app1/tsm_page/anim/TsmAnimatedSwitcherPage.dart';
 import 'file:///D:/User/flutter_app1/lib/tsm_page/anim/TsmPageRoute.dart';
 import 'package:flutter_app1/tsm_page/anim/TsmAnimationPage.dart';
@@ -71,6 +72,7 @@ class MyApp extends StatelessWidget {
       page_routes_animated_switcher:TsmAnimatedSwitcherPage(),
       page_routes_draw:TsmDrawPage(),
       page_routes_gesture_conflict:TsmGestureConflictPage(),
+      page_routes_animated_builder:TsmAnimatedBuilderPage(),
     };
 
     return MaterialApp(

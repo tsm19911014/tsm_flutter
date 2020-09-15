@@ -20,15 +20,14 @@ class _TsmAnimationState extends State<TsmAnimationPage>
         upperBound: 1,
         vsync: this);
 
-    ///改变起始值
+    ///添加变速模型
     Animation curve =
         CurvedAnimation(parent: animatedContainer, curve: Curves.easeIn,);
 
-    ///添加变速模型
+    ///改变起始值
     animation = IntTween(begin: 0, end: 255).animate(curve);
 
 
-    ///改变起始值
     animatedContainer.addListener(() {
       setState(() {
         printString("value:${animation.value}");
