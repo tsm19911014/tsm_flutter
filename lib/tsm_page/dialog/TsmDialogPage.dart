@@ -32,6 +32,19 @@ class TsmDialogPage extends StatelessWidget {
             SizedBox(
               height: 15,
             ),
+          RaisedButton(
+            color: Colors.redAccent,
+            splashColor: Colors.pink,
+            onPressed: () async{
+                int count= await getCupertinoAlertDialog(context);
+                printString(count);
+            },
+            child: inflateText('CupertinoAlertDialog', Colors.white, 15),
+          ),
+
+            SizedBox(
+              height: 15,
+            ),
             RaisedButton(
                 child: inflateText('SimpleDialog', Colors.white, 15),
                 color: Colors.redAccent,
@@ -88,6 +101,40 @@ class TsmDialogPage extends StatelessWidget {
       ),
     );
   }
+
+
+ getCupertinoAlertDialog(BuildContext context)  {
+  return showDialog<int>(context: context,builder: (con){
+    return  CupertinoAlertDialog(
+      title: Text("This is Title"),
+      content: Text('This is content'*10),
+      actions: [
+        FlatButton(
+          onPressed: (){
+            Navigator.of(context).pop(0);
+          },
+          child: Text('取消'),
+        ),
+        FlatButton(
+          onPressed: (){
+            Navigator.of(context).pop(0);
+          },
+          child: Text('中间的'),
+        ),
+        FlatButton(
+          onPressed: (){
+            Navigator.of(context).pop(1);
+          },
+          child: Text('确定'),
+        ),
+      ],
+    );
+  });
+  }
+
+
+
+
 
   void selectDate(BuildContext context) async {
     DateTime dateTime = DateTime.now();
@@ -169,6 +216,8 @@ _getSimpleDialog(BuildContext context) async {
 }
 
 Future<int> _getAlertDialog(BuildContext context) {
+
+
   return showDialog<int>(
       context: context,
       builder: (context) => AlertDialog(

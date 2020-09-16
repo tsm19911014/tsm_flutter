@@ -60,7 +60,7 @@ class _TsmImagePageState extends State<TsmImagePage> {
                       Navigator.push(context, PageRouteBuilder(
                           pageBuilder: (BuildContext context, Animation animation,
                               Animation secondaryAnimation) {
-                            return new FadeTransition(
+                            return FadeTransition(
                               opacity: animation,
                               child:  HeroForwardPage(),
                             );
