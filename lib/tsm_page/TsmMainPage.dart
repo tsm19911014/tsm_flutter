@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app1/tsm_page/stream/TsmStream.dart';
 import 'package:flutter_app1/utils.dart';
 import 'package:flutter_app1/widget/ViewInflate.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -18,6 +19,10 @@ class _TsmMainState extends State<TsmMainPage> {
   ScrollController _controller;
   var _direction = Axis.vertical;
   DateTime _lastPressedAt; //上次点击时间
+
+
+
+
   @override
   void dispose() {
     _controller?.removeListener(lis);
@@ -60,7 +65,7 @@ class _TsmMainState extends State<TsmMainPage> {
       'Animation  学习',
       '自定义绘制  学习',
       '手势冲突  学习',
-      'Icon  学习',
+      'Stream  学习',
       'Icon  学习',
       'Icon  学习',
       'Icon  学习',
@@ -221,7 +226,18 @@ class _TsmMainState extends State<TsmMainPage> {
       case 20:
         Navigator.of(context).pushNamed(page_routes_gesture_conflict);
         break;
+      case 21 :
+        Navigator.of(context).pushNamed(page_routes_stream);
+        break;
     }
-
   }
+
+  @override
+  void deactivate() {
+    super.deactivate();
+  }
+
+
+
+
 }

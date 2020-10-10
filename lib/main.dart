@@ -16,6 +16,7 @@ import 'package:flutter_app1/tsm_page/progress_indicator/TsmProgressIndicatorPag
 import 'package:flutter_app1/tsm_page/scroll/TsmCustomLIstView.dart';
 import 'package:flutter_app1/tsm_page/scroll/TsmGridViewPage.dart';
 import 'package:flutter_app1/tsm_page/scroll/TsmListViewPage.dart';
+import 'package:flutter_app1/tsm_page/stream/TsmStreamPage.dart';
 import 'package:flutter_app1/tsm_page/tsm_flight_dyn_page.dart';
 import 'package:flutter_app1/tsm_page/wrap/TsmWrapPage.dart';
 import 'package:flutter_app1/tsm_page_routes.dart';
@@ -73,6 +74,7 @@ class MyApp extends StatelessWidget {
       page_routes_draw:TsmDrawPage(),
       page_routes_gesture_conflict:TsmGestureConflictPage(),
       page_routes_animated_builder:TsmAnimatedBuilderPage(),
+      page_routes_stream:TsmStreamPage(),
     };
 
     return MaterialApp(

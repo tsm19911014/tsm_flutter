@@ -94,4 +94,8 @@ const String page_routes_animated_switcher=base_routes+'animated_switcher';
 const String page_routes_draw=base_routes+'draw';
 
 
+///Stream 学习
+const String page_routes_stream=base_routes+"stream";
+
+
 
