@@ -19,6 +19,8 @@ class TsmStreamState extends State<TsmStreamPage>{
   @override
   void initState() {
     tsmStream=TsmStream();
+    tsmStream.first();
+    super.initState();
   }
 
   @override

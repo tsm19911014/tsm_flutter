@@ -3,27 +3,51 @@ import 'dart:math';
 
 import 'package:flutter_app1/utils.dart';
 
+typedef String tsmTest();
+
+
 class TsmStream {
-  StreamController<List<String>> _controller = StreamController<List<String>>();
+
+
+  StreamController<tsmTest> _controller;
+
+  Stream<tsmTest> stream;
 
   StreamController get controller => _controller;
 
-  StreamSink<List<String>> get streamSink => _controller.sink;
+  StreamSink<tsmTest> get streamSink => _controller.sink;
 
-  Stream<List<String>> get stream => _controller.stream;
 
   StreamSubscription subscription;
+
+
+  first(){
+    _controller = StreamController<tsmTest>();
+    stream= _controller.stream;
+  }
+
 
   init() {
     if(subscription==null){
       subscription = stream.listen((event) {
-        event.forEach((element) {
-          printString(element);
-        });
+        printString(event());
+//        event.forEach((element) {
+//          printString(element);
+//        });
       });
     }
-    streamSink.add(['111', '222', '333']);
-    printString("init");
+    streamSink.add((){
+      String a='1';
+      String b='b';
+      return a+b;
+    });
+
+//    controller.stream.where((event) => false).listen((event) {
+//      event.forEach((element) {
+//        printString(element);
+//      });
+//    }).
+
   }
 
   close() {
