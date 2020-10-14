@@ -78,7 +78,7 @@ class MyApp extends StatelessWidget {
       page_routes_animated_builder:TsmAnimatedBuilderPage(),
       page_routes_stream:TsmStreamPage(),
       page_routes_bloc:TsmBLoCMainPage(),
-      page_routes_bloc_simple:TsmSimpleBLoCPgae(),
+      page_routes_bloc_simple:TsmSimpleBLoCPage(),
     };
 
     return MaterialApp(

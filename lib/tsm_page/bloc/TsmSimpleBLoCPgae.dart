@@ -7,21 +7,32 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app1/tsm_page/bloc/TsmBaseBLoC.dart';
 
-class TsmSimpleBLoCPgae extends StatelessWidget{
+import '../../main.dart';
+
+class TsmSimpleBLoCPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+    return TsmBaseBLoCWidget<_SimpleBLoC>(
+      bloc: _SimpleBLoC.of(),
+      child: TsmBaseBLoCTest(),
+    );
+  }
 
-    _SimpleBLoC bloc=_SimpleBLoC.of();
-
+}
+class TsmBaseBLoCTest extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    _SimpleBLoC _bloc=TsmBaseBLoCWidget.of<_SimpleBLoC>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Simple BLoC 学习'),
         centerTitle: true,
       ),
       body: StreamBuilder(
-        stream:bloc.outStream ,
-        initialData: bloc.data,
+        stream:_bloc.outStream ,
+        initialData: _bloc.data,
         builder: (context,snap){
           return Container(
             alignment: Alignment.center,
@@ -32,13 +43,13 @@ class TsmSimpleBLoCPgae extends StatelessWidget{
       floatingActionButton: FloatingActionButton(
         child: Text('+'),
         onPressed: (){
-          bloc.add();
+          _bloc.add();
         },
       ),
     );
   }
 }
-class _SimpleBLoC{
+class _SimpleBLoC extends TsmBaseBLoC{
   int _data;
    StreamController _streamController;
   _SimpleBLoC.of(){
@@ -46,7 +57,9 @@ class _SimpleBLoC{
      _data=0;
   }
 
-
+  dispose(){
+    _streamController.close();
+  }
   get outStream=>_streamController.stream;
 
   get data=>_data;
@@ -54,5 +67,4 @@ class _SimpleBLoC{
   add(){
     _streamController.sink.add(++_data);
   }
-
 }
