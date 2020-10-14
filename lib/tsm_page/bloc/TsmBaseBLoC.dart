@@ -35,13 +35,12 @@ class TsmBaseBLoCWidget<T extends TsmBaseBLoC > extends StatefulWidget{
 
   /**
    * 便于子Widget 通过此方法向上
+   * 此方法不能在 TsmBaseBLoCWidget 的child直接使用,需要使用StatelessWidget 或者StatefulWidget
+   * 包裹一层,原因是 在findAncestorWidgetOfExactType 这个方法是直接查找他们_parent ,并没有比对自身
+   * 他的直接 包裹的子Widget 的bloc 直接使用初始化的就可以了,
+   *
    */
   static T of<T extends TsmBaseBLoC>(BuildContext context){
-
-    Element element=context as Element;
-    if(element.widget.runtimeType==T){
-      return  element.widget as T;
-    }
     TsmBaseBLoCWidget<T> provider = context.findAncestorWidgetOfExactType<TsmBaseBLoCWidget<T>>();
     return provider.bloc;
   }
