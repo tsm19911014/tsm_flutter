@@ -6,6 +6,8 @@ import 'package:flutter_app1/tsm_page/anim/TsmAnimatedSwitcherPage.dart';
 import 'file:///D:/User/flutter_app1/lib/tsm_page/anim/TsmPageRoute.dart';
 import 'package:flutter_app1/tsm_page/anim/TsmAnimationPage.dart';
 import 'package:flutter_app1/tsm_page/anim/TsmStaggerAnimationPage.dart';
+import 'package:flutter_app1/tsm_page/bloc/TsmBLoCMainPage.dart';
+import 'package:flutter_app1/tsm_page/bloc/TsmSimpleBLoCPgae.dart';
 import 'package:flutter_app1/tsm_page/check/TsmCheckPage.dart';
 import 'package:flutter_app1/tsm_page/dialog/TsmDialogPage.dart';
 import 'package:flutter_app1/tsm_page/inherited/TsmInheritedSendPage.dart';
@@ -75,6 +77,8 @@ class MyApp extends StatelessWidget {
       page_routes_gesture_conflict:TsmGestureConflictPage(),
       page_routes_animated_builder:TsmAnimatedBuilderPage(),
       page_routes_stream:TsmStreamPage(),
+      page_routes_bloc:TsmBLoCMainPage(),
+      page_routes_bloc_simple:TsmSimpleBLoCPgae(),
     };
 
     return MaterialApp(

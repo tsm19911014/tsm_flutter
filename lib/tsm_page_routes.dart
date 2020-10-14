@@ -98,4 +98,11 @@ const String page_routes_draw=base_routes+'draw';
 const String page_routes_stream=base_routes+"stream";
 
 
+//BLoC 学习
+const String page_routes_bloc=base_routes+"bloc";
+
+//BLoC 模式简单应用
+const String page_routes_bloc_simple=base_routes+"bloc_simple";
+
+
 

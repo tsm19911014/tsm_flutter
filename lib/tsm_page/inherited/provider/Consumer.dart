@@ -14,7 +14,7 @@ class Consumer<T extends ChangeNotifier>  extends StatelessWidget{
   final T data;
 
 
-  final  Widget Function(BuildContext buildContext,T  data) builder;
+  final  Widget Function(BuildContext buildContext,T  data)  builder;
 
 
   @override
@@ -29,11 +29,10 @@ class Consumer<T extends ChangeNotifier>  extends StatelessWidget{
 
 
 
-// ignore: must_be_immutable
 class InheritedProvider<T extends ChangeNotifier> extends InheritedWidget {
 
 
-  T data;
+  final T data;
 
   InheritedProvider(this.data,Widget child):super(child:child);
 

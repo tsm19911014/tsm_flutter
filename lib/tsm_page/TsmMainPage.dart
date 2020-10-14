@@ -66,7 +66,7 @@ class _TsmMainState extends State<TsmMainPage> {
       '自定义绘制  学习',
       '手势冲突  学习',
       'Stream  学习',
-      'Icon  学习',
+      'BLoC  学习',
       'Icon  学习',
       'Icon  学习',
       'Icon  学习',
@@ -228,6 +228,9 @@ class _TsmMainState extends State<TsmMainPage> {
         break;
       case 21 :
         Navigator.of(context).pushNamed(page_routes_stream);
+        break;
+      case 22:
+        Navigator.of(context).pushNamed(page_routes_bloc);
         break;
     }
   }
