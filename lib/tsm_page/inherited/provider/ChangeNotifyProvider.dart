@@ -21,8 +21,8 @@ class ChangeNotifyProvider<T extends ChangeNotifier> extends StatefulWidget{
     if(useData){
       return buildContext.dependOnInheritedWidgetOfExactType<InheritedProvider<T>>().data;
     }
-    var p= buildContext.getElementForInheritedWidgetOfExactType<InheritedProvider<T>>().widget  as InheritedProvider<T>;
-    return p.data;
+    var p= buildContext.getElementForInheritedWidgetOfExactType<InheritedProvider<T>>()?.widget  as InheritedProvider<T>;
+    return p?.data;
   }
 
 

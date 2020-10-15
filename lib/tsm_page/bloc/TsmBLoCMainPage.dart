@@ -18,7 +18,7 @@ class  TsmBLoCMainPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
 
-    list=['计数器'];
+    list=['StreamBuilder 计数器','Flutter_BLoC 计数器'];
 
     return Scaffold(
       appBar: AppBar(
@@ -39,7 +39,14 @@ class  TsmBLoCMainPage extends StatelessWidget{
         child: Text(list[index]),
       ),
       onPressed: (){
-        Navigator.of(context).pushNamed(page_routes_bloc_simple);
+        switch(index){
+          case 0:
+            Navigator.of(context).pushNamed(page_routes_bloc_simple);
+            break;
+          case 1:
+            Navigator.of(context).pushNamed(page_routes_flutter_bloc_count);
+            break;
+        }
       },
     ) ;
   }
