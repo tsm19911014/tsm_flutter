@@ -9,6 +9,7 @@ import 'package:flutter_app1/tsm_page/anim/TsmStaggerAnimationPage.dart';
 import 'package:flutter_app1/tsm_page/bloc/TsmBLoCMainPage.dart';
 import 'package:flutter_app1/tsm_page/bloc/TsmSimpleBLoCPgae.dart';
 import 'package:flutter_app1/tsm_page/bloc/flutterbolc/TsmFlutterBLoCPage.dart';
+import 'package:flutter_app1/tsm_page/bloc/form_validation/tsm_form_validation.dart';
 import 'package:flutter_app1/tsm_page/check/TsmCheckPage.dart';
 import 'package:flutter_app1/tsm_page/dialog/TsmDialogPage.dart';
 import 'package:flutter_app1/tsm_page/inherited/TsmInheritedSendPage.dart';
@@ -81,6 +82,7 @@ class MyApp extends StatelessWidget {
       page_routes_bloc:TsmBLoCMainPage(),
       page_routes_bloc_simple:TsmSimpleBLoCPage(),
       page_routes_flutter_bloc_count:TsmFlutterBLoCPageBase(),
+      page_routes_flutter_bloc_form:TsmFormValidation(),
     };
 
     return MaterialApp(

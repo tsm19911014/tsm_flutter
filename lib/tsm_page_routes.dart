@@ -107,3 +107,6 @@ const String page_routes_bloc_simple=base_routes+"bloc_simple";
 //flutter_bloc 学习
 const String page_routes_flutter_bloc_count=base_routes+"flutter_bloc_count";
 
+//flutter_bloc 学习  form_validation
+const String page_routes_flutter_bloc_form=base_routes+"flutter_bloc_form";
+

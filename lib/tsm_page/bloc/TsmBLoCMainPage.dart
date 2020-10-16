@@ -18,7 +18,7 @@ class  TsmBLoCMainPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
 
-    list=['StreamBuilder 计数器','Flutter_BLoC 计数器'];
+    list=['StreamBuilder 计数器','Flutter_BLoC 计数器','FormValidation 学习'];
 
     return Scaffold(
       appBar: AppBar(
@@ -45,6 +45,9 @@ class  TsmBLoCMainPage extends StatelessWidget{
             break;
           case 1:
             Navigator.of(context).pushNamed(page_routes_flutter_bloc_count);
+            break;
+          case 2:
+            Navigator.of(context).pushNamed(page_routes_flutter_bloc_form);
             break;
         }
       },
