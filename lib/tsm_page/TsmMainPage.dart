@@ -7,6 +7,7 @@ import 'package:flutter_app1/widget/ViewInflate.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../tsm_page_routes.dart';
+import '../tsm_stream.dart';
 import 'main/TsmScaffoldPage.dart';
 
 class TsmMainPage extends StatefulWidget {
@@ -67,7 +68,7 @@ class _TsmMainState extends State<TsmMainPage> {
       '手势冲突  学习',
       'Stream  学习',
       'BLoC  学习',
-      'Icon  学习',
+      'RxDart  学习',
       'Icon  学习',
       'Icon  学习',
     ];
@@ -231,6 +232,11 @@ class _TsmMainState extends State<TsmMainPage> {
         break;
       case 22:
         Navigator.of(context).pushNamed(page_routes_bloc);
+        break;
+      case 23:
+        Navigator.of(context).push(MaterialPageRoute(builder: (con){
+          return TsmStreamPage();
+        }));
         break;
     }
   }
