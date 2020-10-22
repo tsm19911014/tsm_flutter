@@ -69,7 +69,7 @@ class _TsmMainState extends State<TsmMainPage> {
       'Stream  学习',
       'BLoC  学习',
       'RxDart  学习',
-      'Icon  学习',
+      'Dio  学习',
       'Icon  学习',
     ];
   }
@@ -237,6 +237,9 @@ class _TsmMainState extends State<TsmMainPage> {
         Navigator.of(context).push(MaterialPageRoute(builder: (con){
           return TsmStreamPage();
         }));
+        break;
+      case 24:
+        Navigator.of(context).pushNamed(page_routes_dio_test);
         break;
     }
   }

@@ -12,6 +12,7 @@ import 'package:flutter_app1/tsm_page/bloc/flutterbolc/TsmFlutterBLoCPage.dart';
 import 'package:flutter_app1/tsm_page/bloc/form_validation/tsm_form_validation.dart';
 import 'package:flutter_app1/tsm_page/check/TsmCheckPage.dart';
 import 'package:flutter_app1/tsm_page/dialog/TsmDialogPage.dart';
+import 'package:flutter_app1/tsm_page/dio/TsmDioPage.dart';
 import 'package:flutter_app1/tsm_page/inherited/TsmInheritedSendPage.dart';
 import 'package:flutter_app1/tsm_page/listener/TsmGestureConflictPage.dart';
 import 'package:flutter_app1/tsm_page/listener/TsmListenerPage.dart';
@@ -83,6 +84,7 @@ class MyApp extends StatelessWidget {
       page_routes_bloc_simple:TsmSimpleBLoCPage(),
       page_routes_flutter_bloc_count:TsmFlutterBLoCPageBase(),
       page_routes_flutter_bloc_form:TsmFormValidation(),
+      page_routes_dio_test:TsmDioPage(),
     };
 
     return MaterialApp(
@@ -121,22 +123,6 @@ class MyApp extends StatelessWidget {
           return TsmScaffoldPage();
         });
       },
-//      routes: {
-//        page_routes_container: (context) => TsmContainerPage(),
-//        page_routes_scaffold: (context) => TsmScaffoldPage(),
-//        page_routes_appbar: (context) => TsmAppBarPage(),
-//        page_routes_row_and_column: (context) => TsmRowAndColumnPage(),
-//        page_routes_text: (context) => TsmTextPage(),
-//        page_routes_text_field: (context) => TsmTextFieldPage(),
-//        page_routes_raised_button: (context) => TsmRaisedButtonPage(),
-//        page_routes_icon: (context) => TsmIconPage(),
-//        page_routes_iamge: (context) => TsmImagePage(),
-//        page_routes_single_child_scroll_view: (context) =>
-//            TsmSingleChildScrollViewPage(),
-//        page_routes_scroll_base: (context) => ScrollBasePage(),
-//        page_routes_grid_view: (context) => TsmGridViewPage(),
-//        page_routes_list_view: (context) => TsmListViewPage(),
-//      },
       home: TsmMainPage(),
     );
   }
