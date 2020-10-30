@@ -21,6 +21,7 @@ import 'package:flutter_app1/tsm_page/paint/TsmDrawPage.dart';
 import 'package:flutter_app1/tsm_page/progress_indicator/TsmProgressIndicatorPage.dart';
 import 'package:flutter_app1/tsm_page/scroll/TsmCustomLIstView.dart';
 import 'package:flutter_app1/tsm_page/scroll/TsmGridViewPage.dart';
+import 'package:flutter_app1/tsm_page/scroll/TsmListViewCheckPage.dart';
 import 'package:flutter_app1/tsm_page/scroll/TsmListViewPage.dart';
 import 'package:flutter_app1/tsm_page/stream/TsmStreamPage.dart';
 import 'package:flutter_app1/tsm_page/tsm_flight_dyn_page.dart';
@@ -99,6 +100,7 @@ class MyApp extends StatelessWidget {
       page_routes_flutter_bloc_count:TsmFlutterBLoCPageBase(),
       page_routes_flutter_bloc_form:TsmFormValidation(),
       page_routes_dio_test:TsmDioPage(),
+      page_routes_list_check:TsmListViewCheckPage(),
     };
 
     return MaterialApp(
@@ -259,6 +261,8 @@ class MyApp extends StatelessWidget {
           TsmDioPage(),
       'main': (String pageName, Map<String, dynamic> params, String _) =>
           TsmMainPage(),
+      page_routes_list_check: (String pageName, Map<String, dynamic> params, String _) =>TsmListViewCheckPage(),
+
     });
     FlutterBoost.singleton
         .addBoostNavigatorObserver(TestBoostNavigatorObserver());
