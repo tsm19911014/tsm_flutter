@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app1/tsm_page_routes.dart';
 import 'package:flutter_app1/utils.dart';
 
+import '../../TsmNavigator.dart';
+
 class  TsmBLoCMainPage extends StatelessWidget{
 
 
@@ -41,13 +43,13 @@ class  TsmBLoCMainPage extends StatelessWidget{
       onPressed: (){
         switch(index){
           case 0:
-            Navigator.of(context).pushNamed(page_routes_bloc_simple);
+            TsmNavigator.open(context,page_routes_bloc_simple);
             break;
           case 1:
-            Navigator.of(context).pushNamed(page_routes_flutter_bloc_count);
+            TsmNavigator.open(context,page_routes_flutter_bloc_count);
             break;
           case 2:
-            Navigator.of(context).pushNamed(page_routes_flutter_bloc_form);
+            TsmNavigator.open(context,page_routes_flutter_bloc_form);
             break;
         }
       },

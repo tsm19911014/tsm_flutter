@@ -8,7 +8,7 @@ if (localPropertiesFile.exists()) {
 
 def flutterRoot = localProperties.getProperty('flutter.sdk')
 if (flutterRoot == null) {
-    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+    throw new Exception("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
 }
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
@@ -21,6 +21,7 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+//apply plugin: 'com.android.library'
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
@@ -52,6 +53,8 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+
 }
 
 flutter {
@@ -61,3 +64,37 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
+
+
+//获取生成的产品名
+//def getProductName() {
+//    return "tsmFlutter"//这里是你自定义的名称
+//}
+//android.libraryVariants.all { variant ->
+//    variant.outputs.all {
+//        outputFileName = getProductName() + '.aar'
+//    }
+//}
+//以下任务为了拷贝so  因为Flutter默认只生成v7的so
+//def copyFlutterSo = project.task('copyFlutterSo') {
+//    doLast {
+//        println("armeabi-v7a已生成，准备拷贝libflutter.so和libapp.so")
+//        copy{
+//            //  这个文件路径需要根据自身的项目配置
+//            def buildDir = 'D:/User/flutter_app1/build/app'
+//            def dir = "${buildDir}/intermediates/library_and_local_jars_jni/release"
+//            from "${dir}/armeabi-v7a/libflutter.so",
+//                    "${dir}/armeabi-v7a/libapp.so"
+//            into "${dir}/armeabi/"
+//            println("libflutter.so和libapp.so已复制到armeabi文件夹")
+//        }
+//    }
+//}
+//
+//project.tasks.whenTaskAdded { def task ->
+//    if (task.name == 'transformNativeLibsWithSyncJniLibsForRelease') {
+//        task.dependsOn(copyFlutterSo)            // 生成JniLibs之后执行自定义task
+//    }
+//}
+

@@ -230,6 +230,15 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "6.0.6"
+  flutter_boost:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: "^1.17.1"
+      resolved-ref: "7a7923c0d4f345f3206c9653468bcd8d9193d102"
+      url: "https://github.com/alibaba/flutter_boost.git"
+    source: git
+    version: "1.17.1"
   flutter_html:
     dependency: "direct main"
     description:

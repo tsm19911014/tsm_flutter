@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../TsmNavigator.dart';
 import '../../tsm_page_routes.dart';
 
 class ScrollBasePage extends StatelessWidget {
@@ -34,16 +35,16 @@ class ScrollBasePage extends StatelessWidget {
   void clickItem(BuildContext context, int index) {
     switch (index) {
       case 0:
-        Navigator.of(context).pushNamed(page_routes_single_child_scroll_view);
+        TsmNavigator.open(context,page_routes_single_child_scroll_view);
         break;
       case 1:
-        Navigator.of(context).pushNamed(page_routes_grid_view);
+        TsmNavigator.open(context,page_routes_grid_view);
         break;
       case 2:
-        Navigator.of(context).pushNamed(page_routes_list_view);
+        TsmNavigator.open(context,page_routes_list_view);
         break;
       case 3:
-        Navigator.of(context).pushNamed(page_routes_custom_scroll_view);
+        TsmNavigator.open(context,page_routes_custom_scroll_view);
         break;
     }
   }

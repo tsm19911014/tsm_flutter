@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app1/TsmNavigator.dart';
 import 'package:flutter_app1/tsm_page/stream/TsmStream.dart';
 import 'package:flutter_app1/utils.dart';
 import 'package:flutter_app1/widget/ViewInflate.dart';
@@ -142,45 +143,42 @@ class _TsmMainState extends State<TsmMainPage> {
   Future<void> _onPressedItem(BuildContext context, int index) async {
     switch (index) {
       case 0:
-        Navigator.of(context).push(MaterialPageRoute(builder: (context){
-          return TsmScaffoldPage();
-        },settings: RouteSettings(arguments: 'value'))).then((value) => printString(value));
-//        Navigator.of(context).pushNamed(page_routes_scaffold);
+        TsmNavigator.open(context,page_routes_scaffold);
         break;
       case 1:
-        Navigator.of(context).pushNamed(page_routes_appbar,arguments: 'test');
+        TsmNavigator.open(context,page_routes_appbar,arguments: 'test');
         break;
       case 2:
-        Navigator.of(context).pushNamed(page_routes_container);
+        TsmNavigator.open(context,page_routes_container);
         break;
       case 3:
-        Navigator.of(context).pushNamed(page_routes_row_and_column);
+        TsmNavigator.open(context,page_routes_row_and_column);
         break;
       case 4:
-        Navigator.of(context).pushNamed(page_routes_text);
+        TsmNavigator.open(context,page_routes_text);
         break;
       case 5:
-        Navigator.of(context).pushNamed(page_routes_text_field);
+        TsmNavigator.open(context,page_routes_text_field);
         break;
       case 6:
-        Navigator.of(context).pushNamed(page_routes_raised_button);
+        TsmNavigator.open(context,page_routes_raised_button);
         break;
       case 7:
-        Navigator.of(context).pushNamed(page_routes_icon);
+        TsmNavigator.open(context,page_routes_icon);
         break;
       case 8:
         [Permission.storage, Permission.camera].request()
           ..then((value) {
             if (value[Permission.storage].isGranted) {
               if (value[Permission.camera].isGranted) {
-                Navigator.of(context).pushNamed(page_routes_iamge);
+                TsmNavigator.open(context,page_routes_iamge);
               }
             }
           });
         //还有一种写法是
 //      var result = await Permission.storage.request();
 //      if (result.isGranted) {
-//        Navigator.of(context).pushNamed(page_routes_iamge);
+//        TsmNavigator.open(context,page_routes_iamge);
 //      }
         break;
       case 9:
@@ -195,43 +193,43 @@ class _TsmMainState extends State<TsmMainPage> {
         });
         break;
       case 10:
-        Navigator.of(context).pushNamed(page_routes_scroll_base);
+        TsmNavigator.open(context,page_routes_scroll_base);
         break;
       case 11:
-        Navigator.of(context).pushNamed(page_routes_flight_dyn);
+        TsmNavigator.open(context,page_routes_flight_dyn);
         break;
       case 12:
-        Navigator.of(context).pushNamed(page_routes_check_widget);
+        TsmNavigator.open(context,page_routes_check_widget);
         break;
       case 13:
-        Navigator.of(context).pushNamed(page_routes_progress_indicator);
+        TsmNavigator.open(context,page_routes_progress_indicator);
         break;
       case 14:
-        Navigator.of(context).pushNamed(page_routes_wrap);
+        TsmNavigator.open(context,page_routes_wrap);
         break;
       case 15:
-        Navigator.of(context).pushNamed(page_routes_inherited);
+        TsmNavigator.open(context,page_routes_inherited);
         break;
       case 16:
-        Navigator.of(context).pushNamed(page_routes_dialog);
+        TsmNavigator.open(context,page_routes_dialog);
         break;
       case 17:
-        Navigator.of(context).pushNamed(page_routes_listener);
+        TsmNavigator.open(context,page_routes_listener);
         break;
       case 18:
-        Navigator.of(context).pushNamed(page_routes_main_anim);
+        TsmNavigator.open(context,page_routes_main_anim);
         break;
       case 19:
-        Navigator.of(context).pushNamed(page_routes_draw);
+        TsmNavigator.open(context,page_routes_draw);
         break;
       case 20:
-        Navigator.of(context).pushNamed(page_routes_gesture_conflict);
+        TsmNavigator.open(context,page_routes_gesture_conflict);
         break;
       case 21 :
-        Navigator.of(context).pushNamed(page_routes_stream);
+        TsmNavigator.open(context,page_routes_stream);
         break;
       case 22:
-        Navigator.of(context).pushNamed(page_routes_bloc);
+        TsmNavigator.open(context,page_routes_bloc);
         break;
       case 23:
         Navigator.of(context).push(MaterialPageRoute(builder: (con){
@@ -239,7 +237,7 @@ class _TsmMainState extends State<TsmMainPage> {
         }));
         break;
       case 24:
-        Navigator.of(context).pushNamed(page_routes_dio_test);
+        TsmNavigator.open(context,page_routes_dio_test);
         break;
     }
   }
