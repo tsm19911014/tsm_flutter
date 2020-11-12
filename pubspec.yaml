@@ -11,19 +11,24 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  flutter_html: ^1.0.0
-  cupertino_icons: ^0.1.3
-  permission_handler: ^5.0.1+1
-  scoped_model: ^0.3.0
-  flutter_bloc: ^6.0.6
+  flutter_html: ^1.0.0 # html 使用
+  cupertino_icons: ^0.1.3  # 图片库
+  permission_handler: ^5.0.1+1 # android 权限请求
+  scoped_model: ^0.3.0 # inheritedWidget 应用
+  flutter_bloc: ^6.0.6 # bloc 应用 适合放在页面内
   equatable: ^1.2.5
-  formz: ^0.3.1
-  rxdart: ^0.24.1
-  flutter_redux: 0.7.0
-  dio: ^3.0.10
-  json_annotation: ^3.0.0
-  flutter_boost:
+  formz: ^0.3.1 # 格式校验
+  rxdart: ^0.24.1 # rxdart 扩充
+  flutter_redux: 0.7.0  # bloc 应用 适合放在App 内
+  dio: ^3.0.10 # 网络请求
+  sticky_headers: ^0.1.8+1  # listview 粘性头部
+  json_annotation: ^3.0.0  # json 解析
+  source_gen: ^ 0.9.0 # dart  注释生成代码
+  flip_card: ^0.4.4   # 翻转卡片
+  flutter_rating_bar: ^3.0.1+1  # 评分控件
+  sliding_up_panel: ^0.3.6  #  类似bottom shit dialog
+  flutter_swiper: ^1.1.6  #flutter 轮播控件
+  flutter_boost: # 闲鱼混合开发框架,非常好用
     git:
       url: 'https://github.com/alibaba/flutter_boost.git'
       ref: '^1.17.1'

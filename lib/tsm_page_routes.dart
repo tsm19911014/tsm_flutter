@@ -1,4 +1,6 @@
 
+import 'package:flutter_app1/gen/TsmPageRoute.dart';
+
 
 const String base_routes='page/routes/';
 
@@ -113,4 +115,8 @@ const String page_routes_flutter_bloc_form=base_routes+"flutter_bloc_form";
 /// Dio 学习
 const  String page_routes_dio_test=base_routes+'dio_test';
 
+/// bloc 应用在 listview 中
 const String page_routes_list_check=base_routes+"list_check";
+
+
+const String page_routes_stick_header=base_routes+'stick_header';

@@ -1,0 +1,13 @@
+targets:
+  $default:
+    builders:
+      tsm_page_route|route_builder:
+        enabled: true
+
+builders:
+  tsm_page_route_builder:
+    import: 'package:flutter_app1/gen/TsmBuilder.dart'
+    builder_factories: ['tsmPageRouteBuilder']
+    build_extensions: {'.dart':['.route.dart']}
+    auto_apply: root_package
+    build_to: source

@@ -23,6 +23,7 @@ import 'package:flutter_app1/tsm_page/scroll/TsmCustomLIstView.dart';
 import 'package:flutter_app1/tsm_page/scroll/TsmGridViewPage.dart';
 import 'package:flutter_app1/tsm_page/scroll/TsmListViewCheckPage.dart';
 import 'package:flutter_app1/tsm_page/scroll/TsmListViewPage.dart';
+import 'package:flutter_app1/tsm_page/scroll/TsmStickHeaderPage.dart';
 import 'package:flutter_app1/tsm_page/stream/TsmStreamPage.dart';
 import 'package:flutter_app1/tsm_page/tsm_flight_dyn_page.dart';
 import 'package:flutter_app1/tsm_page/wrap/TsmWrapPage.dart';
@@ -101,6 +102,7 @@ class MyApp extends StatelessWidget {
       page_routes_flutter_bloc_form:TsmFormValidation(),
       page_routes_dio_test:TsmDioPage(),
       page_routes_list_check:TsmListViewCheckPage(),
+      page_routes_stick_header:TsmStickHeaderPage(),
     };
 
     return MaterialApp(

@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app1/gen/TsmPageRoute.dart';
 import 'package:flutter_app1/utils.dart';
 import 'package:flutter_app1/widget/ViewInflate.dart';
 import 'package:flutter_app1/widget/TsmStateFulWidget.dart';
 
+import '../../tsm_page_routes.dart';
+
+@TsmPageRoute(page_routes_scaffold)
 class TsmScaffoldPage extends StatefulWidget {
   @override
   _FirstPageState createState() => _FirstPageState();
